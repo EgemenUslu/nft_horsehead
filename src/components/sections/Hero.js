@@ -229,8 +229,8 @@ const Hero = ({update_location, location}) => {
             </Text>
             <ButtonContainer>
               <Button 
-                text="ENTER" 
-                onClick={()=>update_location('city_house')} 
+                text="MINT NOW" 
+                onClick={()=>update_location('landing')} 
                 current={current} />
             </ButtonContainer>
         </TextBox>

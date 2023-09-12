@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { RoadmapData } from '../../config';
-import HorseCard from '../HorseCard';
-import VerticalSeperator from './VerticalSeperator';
+import VerticalSeperator from './sections/VerticalSeperator';
 
 
 const Section = styled.section`
@@ -60,125 +58,9 @@ const TextBox = styled.div`
   text-align: left;
 `;
 
-const MilestonesContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const MilestoneStart = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #D8821B;
-  color: black;
-  width: 280px;
-  min-height: 88px;
-  border-radius: 30px;
-  margin: 0px 24px;
-  margin-top: 56px;
-
-  font-family: 'Amaranth';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 39px;
-`;
-
-const MilestoneBigContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-`;
-
-const MilestoneContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  height: 88px;
-  overflow: visible;
-`;
-
-const MilestoneLine = styled.div`
-  height: 40px;
-  width: 8px;
-  background: #D8821B;
-`;
-
-const MilestonePercentage = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #D8821B;
-  color: black;
-  min-width: 88px;
-  min-height: 88px;
-  border-radius: 88px;
-  margin: 0px 24px;
-
-  font-family: 'Amaranth';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 39px;
-`;
-
-const MilestoneLeftText = styled.text`
-  font-family: 'Amaranth';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: left;
-  width: 25vw;
-  z-index: 1;
-`;
-
-const MilestoneRightText = styled.text`
-  font-family: 'Amaranth';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: right;
-  width: 25vw;
-  z-index: 1;
-`;
-
-const MilestoneEmptyText = styled.text`
-  width: 25vw;
-  z-index: -1;
-`;
 
 const Roadmap = () => {
 
-  const Milestone = ({milestone}) => {
-    return (
-      <MilestoneBigContainer id={milestone.percentage}>
-        <MilestoneLine/>
-        <MilestoneContainer id={milestone.percentage}>
-            {milestone.percentage/10%2?
-              <MilestoneRightText>{milestone.description}</MilestoneRightText>
-              :
-              <MilestoneEmptyText></MilestoneEmptyText>
-            }
-            <MilestonePercentage>%{milestone.percentage}</MilestonePercentage>
-            {milestone.percentage/10%2?
-              <MilestoneEmptyText></MilestoneEmptyText>
-              :
-              <MilestoneLeftText>{milestone.description}</MilestoneLeftText>
-            }
-        </MilestoneContainer>       
-      </MilestoneBigContainer>
-    );
-  }
 
   return (
     <Section>
@@ -202,15 +84,6 @@ const Roadmap = () => {
           </Text>
       </TextBox>
       </Container>
-      <MilestonesContainer id="milestones">
-        <MilestoneStart>STARTING POINT</MilestoneStart>
-        {RoadmapData.map((milestone) => (
-         <Milestone
-          milestone={milestone}
-         />
-        ))
-        }
-      </MilestonesContainer>
       <VerticalSeperator/>
     </Section>
   );

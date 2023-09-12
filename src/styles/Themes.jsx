@@ -41,4 +41,7 @@ export const dark = {
 
   navHeight: "180px",
   halfNavHeight: "-90px",
-};
+  navBackground: "transparent",//'rgba(0,0,0,0.1)',
+  navMenuItemBackground: 'rgba(0,0,0,0.2)',
+  navMenuItemBackgroundHover: 'rgba(0,0,0,0.25)',
+}

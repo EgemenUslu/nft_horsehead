@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
-import Button from './Button';
 import DiscordLogo from '../assets/discord_logo.png';
 import InstagramLogo from '../assets/instagram_logo.png';
 import TwitterLogo from '../assets/twitter_logo.png';
 
 const Section = styled.section`
-  background-color: ${(props) => props.theme.body};
+  margin-bottom:-${(props) => props.theme.navHeight};
+  background: ${(props) => props.theme.navBackground};
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
 `;
 
 const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: ${(props) => props.theme.navBackground};
 
   height: ${(props) => props.theme.navHeight};
 
@@ -35,6 +39,9 @@ const NavBarRight = styled.nav`
   display: flex;
   justify-content: right;
   align-items: center;
+  margin-right: 80px;
+  
+  background: ${(props) => props.theme.navBackground};
   }
 `;
 
@@ -44,6 +51,8 @@ const Menu = styled.ul`
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  background: ${(props) => props.theme.navBackground};
+  margin-right: 1rem;
 
   @media (max-width: 70em) {
     position: fixed;
@@ -54,7 +63,7 @@ const Menu = styled.ul`
     width: 100vw;
     height: ${(props) => `calc(100vh - ${props.theme.navHeight})`};
     z-index: 50;
-    background-color: ${(props) => `rgba(${props.theme.bodyRgba}, 0.85)`};
+    background-color: ${(props) => props.theme.navBackground};
     backdrop-filter: blur(2px);
 
     transform: ${(props) =>
@@ -67,16 +76,19 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  margin: 0 1rem;
+  margin: 0 8px;
   color: ${(props) => props.theme.text};
+  background: ${(props) => props.theme.navMenuItemBackground};
+  padding: 4px 16px;
+  border-radius: 24px;
   cursor: pointer;
-  font-family: Amaranth;
-  font-size: 16px;
+  font-family: Cambria;
+  font-size: 18px;
   font-style: italic;
   font-weight: 400;
-  line-height: 19px;
+  line-height: normal;
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
 
 
   &::after {
@@ -152,9 +164,10 @@ const IconList = styled.div`
   display: flex;
   align-items: center;
   width: min-content;
+  background: ${(props) => props.theme.navBackground};
 
   & > * {
-    padding-right: 0.5rem;
+    padding-right: 1rem;
     transition: all 0.2s ease;
 
     &:hover {
@@ -168,13 +181,17 @@ const IconList = styled.div`
   }
 `;
 
+const Icon = styled.img`
+  background: ${(props) => props.theme.navBackground};
+`;
+
 const Navigation = (props) => {
   const [click, setClick] = useState(false);
 
 
   const scrollTo = async (id) => {
-    if(props.location!=='city_house'){
-      await props.update_location('city_house');
+    if(props.location!=='landing_page'){
+      await props.update_location('landing_page');
     };
 
     let element = document.getElementById(id);
@@ -190,36 +207,32 @@ const Navigation = (props) => {
 
   return (
     <Section id="navigation">
-      <NavBar>
+      <NavBar id="navBar">
         <Logo update_location={props.update_location}/>
-        <NavBarRight>
+        <NavBarRight id="navBarRight">
           <>   
             <Menu click={click}>
-              <MenuItem onClick={() => scrollTo('home')}>Home</MenuItem>
-              <MenuItem onClick={() => scrollTo('welcome')}>Welcome</MenuItem>
-              <MenuItem onClick={() => scrollTo('buy')}>Buy</MenuItem>
-              <MenuItem onClick={() => scrollTo('specs')}>Specs</MenuItem>
-              <MenuItem onClick={() => scrollTo('roadmap')}>Roadmap</MenuItem>
-              <MenuItem onClick={() => scrollTo('floors')}>Floors</MenuItem>
-              <MenuItem onClick={() => scrollTo('team')}>Team</MenuItem>
-              <MenuItem onClick={() => props.update_location('gallery')}>Gallery</MenuItem>
+              <MenuItem onClick={() => props.update_location('landing')}>MINT</MenuItem>
+              <MenuItem onClick={() => props.update_location('roadmap')}>ROADMAP</MenuItem>
+              <MenuItem onClick={() => props.update_location('gallery')}>GALLERY</MenuItem>
+              <MenuItem onClick={() => props.update_location('faq')}>FAQ</MenuItem>
             </Menu>
           </>
           <IconList>
               <a
                 href="http://discord.com"
               >
-                <img src={DiscordLogo}/>
+                <Icon src={DiscordLogo}/>
               </a>
               <a
                 href="http://instagram.com"
               >
-                <img src={InstagramLogo}/>
+                <Icon src={InstagramLogo}/>
               </a>
               <a
                 href="http://twitter.com"
               >
-                <img src={TwitterLogo}/>
+                <Icon src={TwitterLogo}/>
               </a>
           </IconList>
           <HamburgerMenu click={click} onClick={() => setClick(!click)}>

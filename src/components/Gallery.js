@@ -10,6 +10,8 @@ import LayersLite from '../assets/layers_lite.json';
 const Section = styled.section`
   position: relative;
   background: none;
+  width: 60vw;
+  padding: ${(props) => props.theme.navHeight} 10vw 100px 10vw; 
 
   display: flex;
   justify-content: space-between;

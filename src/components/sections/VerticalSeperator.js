@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   position: relative;
-  height: 0px;
-  border: 1px solid #D88218;
-  margin: 98px 0px;
-  width: 100%;
+  height: 1px;
+  background: #705D71;
+  margin: 100px 0px 99px -10vw;
+  width: 100vw;
 `;
 
 
