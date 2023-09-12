@@ -86,6 +86,7 @@ const ImageBox = styled.img`
   width: auto;
   height: 100vh;
   background: ${props => props.color};
+  display: ${props => props.display};
   margin-left: -10vw;
 
   @media (max-width: 84em) {
@@ -177,6 +178,7 @@ const Button = ({ text, onClick, current }) => {
 
 const Hero = ({update_location, location}) => {
   const [current, setCurrent] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 64 * 16); // Using 16px as the standard browser font-size
   
   const handleResize = () => {
@@ -191,11 +193,15 @@ const Hero = ({update_location, location}) => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => setCurrent((current+1)%8), 2000);
+    const interval = setInterval(() => {
+      setImageLoaded(false);  // Reset imageLoaded state before updating current
+      setCurrent((prevCurrent) => (prevCurrent + 1) % 8);
+    }, 2000);
     return () => {
       clearInterval(interval);
     };
   }, [current]);
+  
 
   return (
     <Section
@@ -203,11 +209,19 @@ const Hero = ({update_location, location}) => {
         color={BackgroundColorMap[FirstNineMHSBacgroundColors[current]]}
         textColor={ModalTextColorMap[FirstNineMHSBacgroundColors[current]]}
       >
-      <Container id="Hero">           
-        <ImageBox 
-          src={SMALL_IMAGE_URL(current + 1)}
-          color={BackgroundColorMap[FirstNineMHSBacgroundColors[current]]}
-        />      
+      <Container id="Hero">  
+        {
+          [...Array(8).keys()].map(no => (
+            <ImageBox 
+              key={no}
+              display={no === current ? 'block' : 'none'}
+              onLoad={() => setImageLoaded(true)}
+              src={SMALL_IMAGE_URL(no + 1)}
+              color={imageLoaded && no === current ? BackgroundColorMap[FirstNineMHSBacgroundColors[no]] : 'initial'}
+            />
+          ))
+        }
+    
         <TextBox>
             <Header>{isMobile ? 'Welcome to the MHS' : 'Welcome to the META HORSE SOCIETY'}</Header>
             <Text>
