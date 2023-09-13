@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { BackgroundColorMap, FirstNineMHSBacgroundColors, ModalTextColorMap, SMALL_IMAGE_BASE_URL, SMALL_IMAGE_URL } from '../../config';
+import { COLOR_FOR_HERO, HERO_NFTS, SMALL_IMAGE_URL } from '../../config';
 
 
 const Section = styled.section`
@@ -164,11 +164,55 @@ const Btn = styled.button`
   }
 `;
 
+
+const CountdownContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+`;
+
+const CountdownSegment = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 56px;
+  background: none;
+`;
+
+const CountdownValue = styled.div`
+  width: 92px;
+  height: 92px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+
+  color: #FFF;
+  font-family: Ubuntu;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
+const CountdownLabel = styled.div`
+  color: #FFF;
+  font-family: Ubuntu;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: none;
+`;
+
 const Button = ({ text, onClick, current }) => {
   return (
     <Btn 
       onClick={onClick}      
-      textColor={ModalTextColorMap[FirstNineMHSBacgroundColors[current]]}
+      textColor={COLOR_FOR_HERO('text', current)}
       text={text}
     >
         {text}
@@ -176,11 +220,19 @@ const Button = ({ text, onClick, current }) => {
   );
 };
 
+const formatNumber = number => number < 10 ? `0${number}` : number;
+
 const Hero = ({update_location, location}) => {
   const [current, setCurrent] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 64 * 16); // Using 16px as the standard browser font-size
-  
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 64 * 16);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 64 * 16);
   };
@@ -201,37 +253,79 @@ const Hero = ({update_location, location}) => {
       clearInterval(interval);
     };
   }, [current]);
+
+  const calculateTimeLeft = () => {
+    const now = new Date();
+    const targetDate = new Date('September 22, 2023');
+    const difference = targetDate - now;
+    
+    if (difference > 0) {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      return { days, hours, minutes, seconds };
+    } else {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
   
 
   return (
     <Section
         id={location}
-        color={BackgroundColorMap[FirstNineMHSBacgroundColors[current]]}
-        textColor={ModalTextColorMap[FirstNineMHSBacgroundColors[current]]}
+        color={COLOR_FOR_HERO('background', current)}
+        textColor={COLOR_FOR_HERO('text', current)}
       >
       <Container id="Hero">  
         {
           [...Array(8).keys()].map(no => (
             <ImageBox 
+              id={HERO_NFTS[no]}
               key={no}
               display={no === current ? 'block' : 'none'}
               onLoad={() => setImageLoaded(true)}
-              src={SMALL_IMAGE_URL(no + 1)}
-              color={imageLoaded && no === current ? BackgroundColorMap[FirstNineMHSBacgroundColors[no]] : 'initial'}
+              src={SMALL_IMAGE_URL(HERO_NFTS[current])}
+              color={imageLoaded && no === current ? COLOR_FOR_HERO('background', current) : 'initial'}
             />
           ))
         }
     
         <TextBox>
-            <Header>{isMobile ? 'Welcome to the MHS' : 'Welcome to the META HORSE SOCIETY'}</Header>
+            <Header>{isMobile ? 'Welcome to the MHS' : 'Welcome to METAHORSE SOCIETY'}</Header>
             <Text>
               Unleash your power, own a piece of the digital future, become a part of a pioneering NFT community.
             </Text>
             <ButtonContainer>
-              <Button 
-                text="MINT NOW" 
-                onClick={()=>update_location('landing')} 
-                current={current} />
+              <CountdownContainer>
+                <CountdownSegment>
+                  <CountdownValue>{formatNumber(timeLeft.days)}</CountdownValue>
+                  <CountdownLabel>days</CountdownLabel>
+                </CountdownSegment>
+                <CountdownSegment>
+                  <CountdownValue>{formatNumber(timeLeft.hours)}</CountdownValue>
+                  <CountdownLabel>hrs</CountdownLabel>
+                </CountdownSegment>
+                <CountdownSegment>
+                  <CountdownValue>{formatNumber(timeLeft.minutes)}</CountdownValue>
+                  <CountdownLabel>min</CountdownLabel>
+                </CountdownSegment>
+                <CountdownSegment>
+                  <CountdownValue>{formatNumber(timeLeft.seconds)}</CountdownValue>
+                  <CountdownLabel>sec</CountdownLabel>
+                </CountdownSegment>
+              </CountdownContainer>
             </ButtonContainer>
         </TextBox>
       </Container>

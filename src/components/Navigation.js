@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
-import DiscordLogo from '../assets/discord_logo.png';
-import InstagramLogo from '../assets/instagram_logo.png';
-import TwitterLogo from '../assets/twitter_logo.png';
+import DiscordLogo from '../assets/discordLogoWithBackground.png';
+import InstagramLogo from '../assets/instagramLogoWithBackground.png';
+import XLogo from '../assets/xLogoWithBackground.png';
 
 const Section = styled.section`
   margin-bottom:-${(props) => props.theme.navHeight};
@@ -52,7 +52,7 @@ const Menu = styled.ul`
   align-items: center;
   list-style: none;
   background: ${(props) => props.theme.navBackground};
-  margin-right: 1rem;
+  margin-right: 8px;
 
   @media (max-width: 70em) {
     position: fixed;
@@ -80,7 +80,7 @@ const MenuItem = styled.li`
   color: ${(props) => props.theme.text};
   background: ${(props) => props.theme.navMenuItemBackground};
   padding: 4px 16px;
-  border-radius: 24px;
+  border-radius: 12px;
   cursor: pointer;
   font-family: Cambria;
   font-size: 18px;
@@ -182,7 +182,10 @@ const IconList = styled.div`
 `;
 
 const Icon = styled.img`
-  background: ${(props) => props.theme.navBackground};
+  min-height: 32px;
+  margin-top: 4px;
+  width: auto;
+  background: none;
 `;
 
 const Navigation = (props) => {
@@ -230,9 +233,9 @@ const Navigation = (props) => {
                 <Icon src={InstagramLogo}/>
               </a>
               <a
-                href="http://twitter.com"
+                href="http://x.com"
               >
-                <Icon src={TwitterLogo}/>
+                <Icon src={XLogo}/>
               </a>
           </IconList>
           <HamburgerMenu click={click} onClick={() => setClick(!click)}>

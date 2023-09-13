@@ -1,3 +1,7 @@
+
+import Metadata from './assets/metadata_lite.json';
+
+
 export const RoadmapData =[
   {
     percentage: 10,
@@ -87,3 +91,7 @@ export const SMALL_IMAGE_URL_FIRST_HALF = (nft_no) => `https://ipfs.io/ipfs/bafy
 export const SMALL_IMAGE_URL_SECOND_HALF = (nft_no) => `https://ipfs.io/ipfs/bafybeiccfenru42gsj237lrmqn7swfz3vdyw7lmyabndlegcl7vaa6we24/${nft_no}%20(x800).png`;
 
 export const SMALL_IMAGE_URL = (nft_no) => nft_no > 5000 ?  SMALL_IMAGE_URL_SECOND_HALF(nft_no) : SMALL_IMAGE_URL_FIRST_HALF(nft_no);
+
+export const HERO_NFTS = [25, 1, 54, 2349, 171, 6143, 1619, 6];
+
+export const COLOR_FOR_HERO = (type, id) => type == 'background' ? BackgroundColorMap[Metadata[HERO_NFTS[id]-1]["attributes"]["1. Backgrounds"][0]] : type == 'text' ? ModalTextColorMap[Metadata[HERO_NFTS[id]-1]["attributes"]["1. Backgrounds"][0]] : 'black';

@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import ShowCase from './sections/ShowCase';
-import HorseShoe from '../assets/horseShoeFront.png';
+import HiAiBrain from '../assets/hi_ai_brain.png';
+import Dao from '../assets/dao.png';
+import Treasure from '../assets/treasure.png';
+import Voting from '../assets/voting.png';
+import HorseShoe from '../assets/horseShoePNG.GIF';
 
 const Section = styled.section`
   position: relative;
   background: none;
-  padding: 0px 50px;
   width: 100%;
 `;
 
@@ -39,7 +42,7 @@ const DropPage = () => {
             </p>
           </div>
         }
-        visual={HorseShoe}
+        visual={Treasure}
       />
 
       {/* Group B Details */}
@@ -55,7 +58,7 @@ const DropPage = () => {
             </p>
           </div>
         }
-        visual={HorseShoe}
+        visual={HiAiBrain}
       />
 
       {/* Join the Vanguard Section */}
@@ -66,7 +69,7 @@ const DropPage = () => {
             As we gallop towards the future, your involvement isn't merely a token acquisition but an allegiance to a revolution, a commitment to a world where human and AI not only coexist but collaboratively craft the future. MHS isn't just about ownership; it's a movement, a vision, a collaboration.
           </p>
         }
-        visual={HorseShoe}
+        visual={Dao}
       />
 
       {/* Closing Section */}
@@ -77,7 +80,7 @@ const DropPage = () => {
             Stay ahead, mark the dates, and become part of an epoch-making journey where every stakeholder, be it human or AI, holds the reins of innovation.
           </p>
         }
-        visual={HorseShoe}
+        visual={Voting}
       />
     </Section>
   );

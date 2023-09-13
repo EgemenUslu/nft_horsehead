@@ -11,6 +11,7 @@ const Section = styled.section`
 const Container = styled.section`
   position: relative;
   background: none;
+  padding: 0px 100px;
 
   display: flex;
   justify-content: space-between;
@@ -32,15 +33,14 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
+  justify-content: center;
   color: #FFFFFF;
   margin: 40px 40px 0px 0px;
  
-  font-family: Amaranth;
-  font-size: 24px;
+  font-family: Ubuntu;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0em;
-  text-align: left;
+  line-height: normal;
 `;
 
 
