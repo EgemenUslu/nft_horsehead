@@ -15,6 +15,7 @@ const Section = styled.section`
     height: 1px;
     margin: 100px 0px 99px 0px;
     ${(props) => props.overwrite}
+    margin-left: 0px;
   }
 `;
 

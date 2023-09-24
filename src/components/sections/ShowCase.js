@@ -67,6 +67,7 @@ const ImageBox = styled.img`
 
   @media (max-width: 64em) {
     margin-top: 20px;
+    max-width: 100vw;
   }
 `;
 
