@@ -12,7 +12,7 @@ const Section = styled.section`
   width: 100vw;
   z-index: 1;
   
-  @media (max-width: 70em) {
+  @media (max-width: 64em) {
     position: ${(props) => (props.click ? 'fixed' : 'absolute')};;
     backdrop-filter: ${(props) => (props.click ? 'blur(6px)' : 'none')};
     background: ${(props) => (props.click ? 'rgba(0,0,0,0.6)' : 'none')}; 
@@ -47,7 +47,7 @@ const Menu = styled.ul`
   background: ${(props) => props.theme.navBackground};
   margin-right: 8px;
 
-  @media (max-width: 70em) {
+  @media (max-width: 64em) {
     position: fixed;
     top: ${(props) => props.theme.navHeight};
     left: 0;
