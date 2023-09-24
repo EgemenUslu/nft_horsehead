@@ -58,15 +58,16 @@ const TextBox = styled.div`
 
 const ImageBox = styled.img`
   width: auto;
-  max-width: 400px;
+  max-width: 500px;
   height: auto;
   overflow: hidden;
   border-radius: 40px;
   background: inherit;
 
   @media (max-width: 64em) {
-    margin-top: 20px;
-    max-width: 100vw;
+    margin: 20px 8px 32px 8px;
+    max-width: 100%;
+    max-height: 40vh;
   }
 `;
 

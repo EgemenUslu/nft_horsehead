@@ -11,6 +11,12 @@ const Section = styled.section`
   position: absolute;
   width: 100vw;
   z-index: 1;
+  
+  @media (max-width: 70em) {
+    position: ${(props) => (props.click ? 'fixed' : 'absolute')};;
+    backdrop-filter: ${(props) => (props.click ? 'blur(6px)' : 'none')};
+    background: ${(props) => (props.click ? 'rgba(0,0,0,0.6)' : 'none')}; 
+  }
 `;
 
 const NavBar = styled.nav`
@@ -50,8 +56,8 @@ const Menu = styled.ul`
     width: 100vw;
     height: ${(props) => `calc(100vh - ${props.theme.navHeight})`};
     z-index: 50;
-    background-color: ${(props) => props.theme.navBackground};
-    backdrop-filter: blur(2px);
+    background: ${(props) => (props.click ? 'rgba(0,0,0,0.6)' : props.theme.navBackground)}; 
+    backdrop-filter: blur(6px);
 
     transform: ${(props) =>
       props.click ? 'translateY(0)' : 'translateY(1000%)'};
@@ -85,7 +91,8 @@ const MenuItem = styled.li`
   }
 
   @media (max-width: 64em) {
-    margin: 1rem 0;
+    margin: 8px 0;
+    font-size: 18px;
 
     &::after {
       display: none;
@@ -147,7 +154,7 @@ const IconList = styled.div`
   background: ${(props) => props.theme.navBackground};
 
   & > * {
-    margin: 0 16px 0 0;
+    margin: 0 8px;
     color: ${(props) => props.theme.text};
     background: ${(props) => props.theme.navMenuItemBackground};
     padding: 4px 8px;
@@ -156,11 +163,14 @@ const IconList = styled.div`
     &:hover {
       transform: scale(1.2);
     }  
-    
+
     @media (max-width: 64em) {
       /* 1024px */
-      display: none;
+      margin: 8px 0;
     }
+  }
+  @media (max-width: 64em) {
+    flex-direction: column;
   }
 `;
 
@@ -168,6 +178,10 @@ const Icon = styled.img`
   height: 14px;
   width: auto;
   background: none;
+
+  @media (max-width: 64em) {
+    height: 20px;
+  }
 `;
 
 const IconContainer = styled.a`
@@ -180,6 +194,10 @@ const IconContainer = styled.a`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+ 
+  @media (max-width: 64em) {
+    height: 20px;
+  }
 `;
 
 
@@ -204,7 +222,7 @@ const Navigation = (props) => {
   };
 
   return (
-    <Section id="navigation">
+    <Section id="navigation" click={click} >
       <NavBar id="navBar">
         <Logo update_location={props.update_location}/>
         <NavBarRight id="navBarRight">
@@ -214,25 +232,25 @@ const Navigation = (props) => {
               <MenuItem onClick={() => props.update_location('roadmap')}>ROADMAP</MenuItem>
               <MenuItem onClick={() => props.update_location('gallery')}>GALLERY</MenuItem>
               <MenuItem onClick={() => props.update_location('faq')}>FAQ</MenuItem>
+              <IconList>
+                <IconContainer
+                  href="https://discord.gg/eqPYZQMxh2"
+                >
+                  <Icon src={DiscordLogo}/>
+                </IconContainer>
+                <IconContainer
+                  href="http://instagram.com"
+                >
+                  <Icon src={InstagramLogo}/>
+                </IconContainer>
+                <IconContainer
+                  href="http://x.com"
+                >
+                  <Icon src={XLogo}/>
+                </IconContainer>
+            </IconList>
             </Menu>
           </>
-          <IconList>
-              <IconContainer
-                href="https://discord.gg/eqPYZQMxh2"
-              >
-                <Icon src={DiscordLogo}/>
-              </IconContainer>
-              <IconContainer
-                href="http://instagram.com"
-              >
-                <Icon src={InstagramLogo}/>
-              </IconContainer>
-              <IconContainer
-                href="http://x.com"
-              >
-                <Icon src={XLogo}/>
-              </IconContainer>
-          </IconList>
           <HamburgerMenu click={click} onClick={() => setClick(!click)}>
             &nbsp;
           </HamburgerMenu>       

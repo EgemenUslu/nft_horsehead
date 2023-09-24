@@ -1,8 +1,8 @@
 
 import Metadata from './assets/metadata_lite.json';
-import HiAiBrain from './assets/hi_ai_brain.png';
-import Dao from './assets/dao.png';
-import Treasure from './assets/treasure.png';
+import HiAiBrain from './assets/brain.PNG';
+import Dao from './assets/dao.PNG';
+import Treasure from './assets/treasure.PNG';
 import HiAiDao from './assets/neuralDao1.PNG';
 import HorseShoe from './assets/horseShoePNG.GIF';
 import Generation from './assets/generation3.GIF';

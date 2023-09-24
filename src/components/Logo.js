@@ -24,6 +24,10 @@ const Image = styled.img`
 
   &:hover {
     transform: scale(1.1);
+  } 
+  
+  @media (max-width: 64em) {
+    margin-left: 24px;
   }
 `;
 
