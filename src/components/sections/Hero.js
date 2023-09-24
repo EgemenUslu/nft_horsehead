@@ -81,7 +81,7 @@ const TextBox = styled.div`
     max-width: 100vw;
     width: 100%;
     margin-top: 0;
-    margin-left: 5vw;
+    margin-left: 5vh;
     padding: 4vh;
     padding-bottom: 10vh;
     background: black;
@@ -116,7 +116,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 84em) {
-    margin: 5vh 0vh 5vh 0vh;
+    margin: 5vh 0vh 5vh -5vh;
   }
 
   @media (max-width: 48em) {
