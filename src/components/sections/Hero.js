@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { COLOR_FOR_HERO, HERO_NFTS, SMALL_IMAGE_URL } from '../../config';
+import VerticalSeperator from './VerticalSeperator';
 
 
 const Section = styled.section`
@@ -24,10 +25,10 @@ const Container = styled.section`
 
   @media (max-width: 84em) {
     width: 100%;
-    height: 100vh;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    margin-top: 144px;
   }
 `;
 const Header = styled.div`
@@ -41,6 +42,7 @@ const Header = styled.div`
 
   @media (max-width: 84em) {
     font-size: 32px;
+    color: white;
   }
 `;
 
@@ -50,6 +52,10 @@ const Text = styled.text`
   margin-top: 40px;
   background: inherit;
   color:inherit;
+
+  @media (max-width: 84em) {
+    color: white;
+  }
 `;
 
 const TextBox = styled.div`
@@ -73,11 +79,12 @@ const TextBox = styled.div`
 
   @media (max-width: 84em) {
     max-width: 100vw;
+    width: 100%;
     margin-top: 0;
-    margin-left: 0;
-    max-width: 100%;
+    margin-left: 5vw;
     padding: 4vh;
     padding-bottom: 10vh;
+    background: black;
   }
 `;
 
@@ -90,7 +97,7 @@ const ImageBox = styled.img`
   margin-left: -10vw;
 
   @media (max-width: 84em) {
-    width: 100vw;
+    width: 90vw;
     height: auto;
     margin-left: 10vw;
   }
@@ -107,6 +114,10 @@ const ButtonContainer = styled.div`
 
   display: flex;
   justify-content: center;
+
+  @media (max-width: 84em) {
+    margin: 5vh 0vh 5vh 0vh;
+  }
 
   @media (max-width: 48em) {
     align-self: center;
@@ -171,6 +182,12 @@ const CountdownContainer = styled.div`
   align-items: center;
   background: none;
   z-index: 0;
+
+  @media (max-width: 84em) {
+    width: 90vw;
+    max-width: 600px;
+    justify-content: space-between;
+  }
 `;
 
 const CountdownSegment = styled.div`
@@ -180,6 +197,10 @@ const CountdownSegment = styled.div`
   align-items: center;
   margin-right: 56px;
   background: none;
+
+  @media (max-width: 84em) {
+    margin: auto;
+  }
 `;
 
 const CountdownValue = styled.div`
@@ -197,6 +218,10 @@ const CountdownValue = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media (max-width: 84em) {
+    background: rgba(255, 255, 255, 0.3);
+  }
 `;
 
 const CountdownLabel = styled.div`
@@ -223,6 +248,31 @@ const Button = ({ text, onClick, current }) => {
 
 const formatNumber = number => number < 10 ? `0${number}` : number;
 
+const Countdown = ({timeLeft}) => {
+  return(
+    <ButtonContainer>
+      <CountdownContainer>
+        <CountdownSegment>
+          <CountdownValue>{formatNumber(timeLeft.days)}</CountdownValue>
+          <CountdownLabel>days</CountdownLabel>
+        </CountdownSegment>
+        <CountdownSegment>
+          <CountdownValue>{formatNumber(timeLeft.hours)}</CountdownValue>
+          <CountdownLabel>hrs</CountdownLabel>
+        </CountdownSegment>
+        <CountdownSegment>
+          <CountdownValue>{formatNumber(timeLeft.minutes)}</CountdownValue>
+          <CountdownLabel>min</CountdownLabel>
+        </CountdownSegment>
+        <CountdownSegment>
+          <CountdownValue>{formatNumber(timeLeft.seconds)}</CountdownValue>
+          <CountdownLabel>sec</CountdownLabel>
+        </CountdownSegment>
+      </CountdownContainer>
+    </ButtonContainer>
+  )
+};
+
 const Hero = ({update_location, location}) => {
   const [current, setCurrent] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -235,7 +285,7 @@ const Hero = ({update_location, location}) => {
   });
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 64 * 16);
+    setIsMobile(window.innerWidth <= 84 * 16);
   };
 
   useEffect(() => {
@@ -304,32 +354,19 @@ const Hero = ({update_location, location}) => {
         }
     
         <TextBox>
-            <Header>{isMobile ? 'Welcome to the MHS' : 'Welcome to METAHORSE SOCIETY'}</Header>
+            {isMobile && <Countdown timeLeft={timeLeft}/>}
+            <Header>{isMobile ? 'Welcome to METAHORSE SOCIETY' : 'Welcome to METAHORSE SOCIETY'}</Header>
             <Text>
               Unleash your power, own a piece of the digital future, become a part of a pioneering NFT community.
             </Text>
-            <ButtonContainer>
-              <CountdownContainer>
-                <CountdownSegment>
-                  <CountdownValue>{formatNumber(timeLeft.days)}</CountdownValue>
-                  <CountdownLabel>days</CountdownLabel>
-                </CountdownSegment>
-                <CountdownSegment>
-                  <CountdownValue>{formatNumber(timeLeft.hours)}</CountdownValue>
-                  <CountdownLabel>hrs</CountdownLabel>
-                </CountdownSegment>
-                <CountdownSegment>
-                  <CountdownValue>{formatNumber(timeLeft.minutes)}</CountdownValue>
-                  <CountdownLabel>min</CountdownLabel>
-                </CountdownSegment>
-                <CountdownSegment>
-                  <CountdownValue>{formatNumber(timeLeft.seconds)}</CountdownValue>
-                  <CountdownLabel>sec</CountdownLabel>
-                </CountdownSegment>
-              </CountdownContainer>
-            </ButtonContainer>
+            {!isMobile && <Countdown timeLeft={timeLeft}/>}
         </TextBox>
       </Container>
+      {isMobile && 
+      <VerticalSeperator
+        overwrite='margin: 0;'
+      />
+      }
     </Section>
   );
 };

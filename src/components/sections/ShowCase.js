@@ -7,59 +7,67 @@ import GenerationFinal from '../../assets/generationFinal.png';
 const Section = styled.section`
   position: relative;
   width: 100%;
-  background:  ${(props) => props.background};
+  background: ${(props) => props.background};
 `;
 
 const Container = styled.section`
   position: relative;
   background: inherit;
   padding: 0px 100px;
-
   display: flex;
   justify-content: space-between;
-  flex-direction: ${(props) => props.direction };
+  flex-direction: ${(props) => props.direction};
 
   @media (max-width: 64em) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
+    padding: 0px 20px;
   }
 `;
 
-const Text = styled.text`
+const Text = styled.p`
   font-family: Ubuntu;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal; 
+  line-height: normal;
   text-align: left;
   margin-top: 39px;
   background: inherit;
+
+  @media (max-width: 64em) {
+    font-size: 16px;
+    margin-top: 20px;
+  }
 `;
 
 const TextBox = styled.div`
   max-width: 44vw;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   justify-content: center;
   color: #FFFFFF;
-  margin:  ${(props) => props.margin};
+  margin: ${(props) => props.margin};
   background: inherit;
- 
-  font-family: Ubuntu;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: normal;
-`;
 
+  @media (max-width: 64em) {
+    max-width: 90vw;
+    margin: 20px 0;
+  }
+`;
 
 const ImageBox = styled.img`
   width: auto;
+  max-width: 400px;
   height: auto;
   overflow: hidden;
   border-radius: 40px;
   background: inherit;
 
+  @media (max-width: 64em) {
+    margin-top: 20px;
+  }
 `;
 
 const ShowCase = ({no, header, body, visual}) => {

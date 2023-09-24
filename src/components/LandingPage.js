@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import Hero from "./sections/Hero";
-import ShowCase from './sections/ShowCase';
 import DropPage from './DropPage';
 
 
@@ -16,7 +15,6 @@ const Section = styled.section`
   @media (max-width: 64em) {
     width: 100vw;
     max-width: 100vw;
-    max-height: 100vh;
   }
 `;
 
@@ -31,7 +29,7 @@ padding-top: 100px;
 min-width: 1024px;
 width: 80vw;
 
-@media (max-width: 64em) {
+@media (max-width: 84em) {
   width: 100vw;
 }
 `;
