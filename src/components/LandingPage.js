@@ -31,6 +31,7 @@ width: 80vw;
 
 @media (max-width: 84em) {
   width: 100vw;
+  min-width: 100vw;
 }
 `;
 

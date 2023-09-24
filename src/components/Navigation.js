@@ -20,19 +20,6 @@ const NavBar = styled.nav`
   background: ${(props) => props.theme.navBackground};
 
   height: ${(props) => props.theme.navHeight};
-
-  .mobile {
-    display: none;
-  }
-
-  @media (max-width: 64em) {
-    .desktop {
-      display: none;
-    }
-    .mobile {
-      display: inline-block;
-    }
-  }
 `;
 
 const NavBarRight = styled.nav`
@@ -71,7 +58,7 @@ const Menu = styled.ul`
     transition: all 0.3s ease;
 
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
   }
 `;
 
@@ -89,6 +76,7 @@ const MenuItem = styled.li`
   line-height: normal;
   letter-spacing: 0em;
   text-align: center;
+  z-index: 50;
 
 
   &::after {
@@ -119,7 +107,7 @@ const HamburgerMenu = styled.span`
   background: ${(props) => props.theme.text};
 
   position: absolute;
-  top: 6rem;
+  top: 4rem;
   right: 4em;
   transform: ${(props) =>
     props.click

@@ -43,6 +43,7 @@ const Header = styled.div`
   @media (max-width: 84em) {
     font-size: 32px;
     color: white;
+    width: 90vw;
   }
 `;
 
@@ -78,12 +79,11 @@ const TextBox = styled.div`
   text-align: left;
 
   @media (max-width: 84em) {
-    max-width: 100vw;
-    width: 100%;
+    max-width: 90vw;
+    width: 90vw;
+    margin-left: 0;
     margin-top: 0;
-    margin-left: 5vh;
-    padding: 4vh;
-    padding-bottom: 10vh;
+    padding: 0vh 5vw 10vh 5vw;
     background: black;
   }
 `;
@@ -110,13 +110,12 @@ const ButtonContainer = styled.div`
   position: relative;
   background: inherit;
   color:inherit;
-  z-index: 1;
 
   display: flex;
   justify-content: center;
 
   @media (max-width: 84em) {
-    margin: 5vh 0vh 5vh -5vh;
+    margin: 5vh 0vh 5vh 0vh;
   }
 
   @media (max-width: 48em) {
@@ -221,6 +220,9 @@ const CountdownValue = styled.div`
 
   @media (max-width: 84em) {
     background: rgba(255, 255, 255, 0.3);
+    width: 80px;
+    height: 80px;
+    font-size: 48px;
   }
 `;
 
@@ -231,7 +233,11 @@ const CountdownLabel = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  background: none;
+  background: none;  
+  
+  @media (max-width: 84em) {
+    font-size: 24px;
+  }
 `;
 
 const Button = ({ text, onClick, current }) => {
