@@ -223,7 +223,7 @@ const Navigation = (props) => {
           </>
           <IconList>
               <a
-                href="http://discord.com"
+                href="https://discord.gg/YqJ9bzxQ"
               >
                 <Icon src={DiscordLogo}/>
               </a>
