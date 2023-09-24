@@ -27,20 +27,19 @@ const Container = styled.section`
 
 const Text = styled.p`
   font-family: Ubuntu;
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   text-align: left;
-  margin-top: 39px;
+  margin-top: ${(props) => (props.firstParagraph ? '0px' : '32px')};
   background: inherit;
 
   @media (max-width: 64em) {
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: ${(props) => (props.firstParagraph ? '0px' : '20px')};
   }
 `;
-
 const TextBox = styled.div`
   max-width: 44vw;
   display: flex;
@@ -53,7 +52,7 @@ const TextBox = styled.div`
 
   @media (max-width: 64em) {
     max-width: 90vw;
-    margin: 20px 0;
+    margin: 0;
   }
 `;
 
@@ -101,13 +100,13 @@ const ShowCase = ({no, header, body, visual}) => {
         direction={no%2 ? 'row' : 'row-reverse'}
       >      
           <TextBox
-            margin={no%2 ? '40px 80px 0px 0px' : '40px 0px 0px 80px'}
+            margin={no%2 ? '0px 80px 0px 0px' : '0px 0px 0px 80px'}
           >
             {
-              body.map((paragraph) => (
-                  <Text>
-                    {paragraph}
-                  </Text>
+              body.map((paragraph, index) => (
+                <Text firstParagraph={index === 0}>
+                  {paragraph}
+                </Text>
                 )
               )
             }

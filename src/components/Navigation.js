@@ -67,10 +67,10 @@ const MenuItem = styled.li`
   color: ${(props) => props.theme.text};
   background: ${(props) => props.theme.navMenuItemBackground};
   padding: 4px 16px;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   font-family: Cambria;
-  font-size: 18px;
+  font-size: 12px;
   font-style: italic;
   font-weight: 400;
   line-height: normal;
@@ -79,17 +79,9 @@ const MenuItem = styled.li`
   z-index: 50;
 
 
-  &::after {
-    content: ' ';
-    display: block;
-    width: 0%;
-    height: 2px;
-    background: ${(props) => props.theme.text};
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
+  &:hover {
+    transition: all 0.2s ease;
+    transform: scale(1.2);
   }
 
   @media (max-width: 64em) {
@@ -170,7 +162,7 @@ const IconList = styled.div`
 `;
 
 const Icon = styled.img`
-  min-height: 32px;
+  height: 24px;
   margin-top: 4px;
   width: auto;
   background: none;
@@ -211,7 +203,7 @@ const Navigation = (props) => {
           </>
           <IconList>
               <a
-                href="https://discord.gg/YqJ9bzxQ"
+                href="https://discord.gg/eqPYZQMxh2"
               >
                 <Icon src={DiscordLogo}/>
               </a>

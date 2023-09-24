@@ -39,8 +39,8 @@ export const dark = {
 
   fontButton: "0.875em",
 
-  navHeight: "180px",
-  halfNavHeight: "-90px",
+  navHeight: "120px",
+  halfNavHeight: "-60px",
   navBackground: "transparent",//'rgba(0,0,0,0.1)',
   navMenuItemBackground: 'rgba(0,0,0,0.3)',
   navMenuItemBackgroundHover: 'rgba(0,0,0,0.35)',
