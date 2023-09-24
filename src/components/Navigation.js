@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
-import DiscordLogo from '../assets/discordLogoWithBackground.png';
-import InstagramLogo from '../assets/instagramLogoWithBackground.png';
-import XLogo from '../assets/xLogoWithBackground.png';
+import DiscordLogo from '../assets/discordLogoWhite.png';
+import InstagramLogo from '../assets/instagramLogoWhite.png';
+import XLogo from '../assets/xLogoWhite.png';
 
 const Section = styled.section`
   margin-bottom:-${(props) => props.theme.navHeight};
@@ -66,7 +66,7 @@ const MenuItem = styled.li`
   margin: 0 8px;
   color: ${(props) => props.theme.text};
   background: ${(props) => props.theme.navMenuItemBackground};
-  padding: 4px 16px;
+  padding: 4px 8px;
   border-radius: 10px;
   cursor: pointer;
   font-family: Cambria;
@@ -147,7 +147,10 @@ const IconList = styled.div`
   background: ${(props) => props.theme.navBackground};
 
   & > * {
-    padding-right: 1rem;
+    margin: 0 16px 0 0;
+    color: ${(props) => props.theme.text};
+    background: ${(props) => props.theme.navMenuItemBackground};
+    padding: 4px 8px;
     transition: all 0.2s ease;
 
     &:hover {
@@ -162,11 +165,23 @@ const IconList = styled.div`
 `;
 
 const Icon = styled.img`
-  height: 24px;
-  margin-top: 4px;
+  height: 14px;
   width: auto;
   background: none;
 `;
+
+const IconContainer = styled.a`
+  height: 14px;
+  width: auto;
+  background: ${(props) => props.theme.navMenuItemBackground};
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
 
 const Navigation = (props) => {
   const [click, setClick] = useState(false);
@@ -202,21 +217,21 @@ const Navigation = (props) => {
             </Menu>
           </>
           <IconList>
-              <a
+              <IconContainer
                 href="https://discord.gg/eqPYZQMxh2"
               >
                 <Icon src={DiscordLogo}/>
-              </a>
-              <a
+              </IconContainer>
+              <IconContainer
                 href="http://instagram.com"
               >
                 <Icon src={InstagramLogo}/>
-              </a>
-              <a
+              </IconContainer>
+              <IconContainer
                 href="http://x.com"
               >
                 <Icon src={XLogo}/>
-              </a>
+              </IconContainer>
           </IconList>
           <HamburgerMenu click={click} onClick={() => setClick(!click)}>
             &nbsp;
