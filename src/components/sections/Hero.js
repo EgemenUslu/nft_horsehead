@@ -59,7 +59,7 @@ const TextBox = styled.div`
   align-items: left;
   color: inherit;
   margin-top: 40vh;
-  margin-left: -10vw;
+  margin-left: -4vw;
 
   background: inherit;
  
@@ -170,6 +170,7 @@ const CountdownContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: none;
+  z-index: 0;
 `;
 
 const CountdownSegment = styled.div`
@@ -256,7 +257,7 @@ const Hero = ({update_location, location}) => {
 
   const calculateTimeLeft = () => {
     const now = new Date();
-    const targetDate = new Date('September 22, 2023');
+    const targetDate = new Date('October 22, 2023');
     const difference = targetDate - now;
     
     if (difference > 0) {
@@ -296,7 +297,7 @@ const Hero = ({update_location, location}) => {
               key={no}
               display={no === current ? 'block' : 'none'}
               onLoad={() => setImageLoaded(true)}
-              src={SMALL_IMAGE_URL(HERO_NFTS[current])}
+              src={SMALL_IMAGE_URL(HERO_NFTS[no])}
               color={imageLoaded && no === current ? COLOR_FOR_HERO('background', current) : 'initial'}
             />
           ))

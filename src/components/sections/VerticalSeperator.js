@@ -7,12 +7,13 @@ const Section = styled.section`
   background: #705D71;
   margin: 100px 0px 99px -10vw;
   width: 100vw;
+  ${(props) => props.overwrite}
 `;
 
 
-const VerticalSeperator = () => {
+const VerticalSeperator = ({overwrite=''}) => {
   return (
-    <Section id="vertical_seperator"/>
+    <Section id="vertical_seperator" overwrite={overwrite} />
   );
 };
 
