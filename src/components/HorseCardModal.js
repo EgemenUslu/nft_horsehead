@@ -8,7 +8,6 @@ const ImgContainer = styled.div`
   width: 600px;
   height: 600px;
   background: inherit;
-  margin-top: 8px;
 
   img {
     width: auto;
