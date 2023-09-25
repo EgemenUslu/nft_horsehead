@@ -10,7 +10,6 @@ import LayersLite from '../assets/layers_lite.json';
 const Section = styled.section`
   position: relative;
   background: none;
-  width: 60vw;
   padding: ${(props) => props.theme.navHeight} 10vw 100px 10vw; 
 
   display: flex;
@@ -46,7 +45,7 @@ const ImageBox = styled.div`
   @media (max-width: 36em) {
     min-width: auto;
     grid-template-columns: auto auto;
-    row-gap: 32px;
+    row-gap: 5vw;
 
   @media (max-width: 24em) {
     min-width: auto;

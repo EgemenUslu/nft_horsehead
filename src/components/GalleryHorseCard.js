@@ -26,11 +26,42 @@ const ImgContainer = styled.div`
     width: 100%;
     height: 220px;
     max-height: 220px;
+
+    @media (max-width: 80em) {
+      width: 29vw;
+      max-width: 220px;
+      height: auto;
+  
+      @media (max-width: 36em) {
+        width: 38vw;
+        max-width: 220px;
+        height: auto;
+
+        @media (max-width: 24em) {
+          width: 80vw;
+          max-width: 220px;
+          height: auto;
+        }
+      }
+    }
   }
 
-  @media (max-width: 64em) {
-    width: auto;
-    height: 220px;
+  @media (max-width: 80em) {
+    width: 29vw;
+    max-width: 220px;
+    height: auto;
+
+    @media (max-width: 36em) {
+      width: 38vw;
+      max-width: 220px;
+      height: auto;
+
+      @media (max-width: 24em) {
+        width: 80vw;
+        max-width: 220px;
+        height: auto;
+      }
+    }
   }
 `;
 
