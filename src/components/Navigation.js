@@ -107,7 +107,7 @@ const HamburgerMenu = styled.span`
 
   position: absolute;
   top: 4rem;
-  right: 4em;
+  right: 2.5rem;
   transform: ${(props) =>
     props.click
       ? 'translate(-50%) rotate(90deg)'
