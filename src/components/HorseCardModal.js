@@ -18,12 +18,13 @@ const ImgContainer = styled.div`
     width: auto;
     height: 100%;
     max-height: 50vh;
+    margin-left: 8px;
 
     img {
-      width: auto;
-      height: 100%;
+      width: 90vw;
+      height: auto;
       max-height: 50vh;
-    
+      max-width: 50vh;
     }   
   }
 `;
@@ -141,6 +142,7 @@ const Modal = styled.div`
     max-height: 96vh;
     flex-direction: column;
     padding-top: 200px;
+    overflow: unset;
     overflow-x: hidden;
 
     
@@ -177,11 +179,8 @@ const FooterText = styled.text`
   text-align: left;
 
   background: transparent;
-  right: 48px;
-  bottom: 48px;
-  position: absolute;
+  position: relative;
 
-  
   @media (max-width: 80em) {
     margin-left: 0px;
   }
