@@ -8,6 +8,7 @@ const ImgContainer = styled.div`
   width: 600px;
   height: 600px;
   background: inherit;
+  margin-top: 8px;
 
   img {
     width: auto;
@@ -19,6 +20,7 @@ const ImgContainer = styled.div`
     height: 100%;
     max-height: 50vh;
     margin-left: 8px;
+    margin-top: unset;
 
     img {
       width: 90vw;
@@ -144,10 +146,12 @@ const Modal = styled.div`
     padding-top: 200px;
     overflow: unset;
     overflow-x: hidden;
+    align-items: start;
 
     
     @media (max-width: 48em) {
       height: 70vh;
+      align-items: center;
     }
   }
 `;
@@ -179,10 +183,15 @@ const FooterText = styled.text`
   text-align: left;
 
   background: transparent;
-  position: relative;
+  bottom: 48px;
+  right: 48px;
+  position: absolute;
 
   @media (max-width: 80em) {
     margin-left: 0px;
+    bottom: unset;
+    right: unset;
+    position: relative;
   }
 `;
 
