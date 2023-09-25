@@ -6,63 +6,53 @@ import Trait from './Trait';
 const LayerBox = styled.div`
   position: relative;
   background: none;
-  width: 226px;
-  border-bottom: 1px solid #D8821B; 
-
-  @media (max-width: 64em) {
-    width: 90vw;
-  }
-  }
+  width: 100%;
+  border-bottom: 1px solid #FFF; 
 `;
 
 const LayerTitleBox = styled.div`
   position: relative;
   background: none;
   height: 40px;
-  width: 226px;
+  width: 100%;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   cursor: pointer;  
-  
-  @media (max-width: 64em) {
-    width: 90vw;
-  }
-  }
 `;
 
 const LayerName = styled.div`
-    font-family: Amaranth;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: white;
-  }
+  color: #FFF;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+  color: white;
 `;
 
 const LayerDisplayIcon = styled.div`
-    font-family: Amaranth;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 29px;
-    letter-spacing: 0em;
-    text-align: right;
-    color: white;
-}
+  font-family: Ubuntu;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
 `;
 
 const TraitBox = styled.div`
   background: none;
-  width: 226px;
+  width: 100%;
   max-height: 400px;
   overflow-x:hidden;
 
-  @media (max-width: 64em) {
+  @media (max-width: 68em) {
     width: 90vw;
+    max-width: 32em;
   }
 `;
 const Layer = (props) => {

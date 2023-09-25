@@ -10,47 +10,56 @@ import LayersLite from '../assets/layers_lite.json';
 const Section = styled.section`
   position: relative;
   background: none;
-  padding: ${(props) => props.theme.navHeight} 10vw 100px 10vw; 
+  padding: ${(props) => props.theme.navHeight} 120px 12px 120px; 
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
-  @media (max-width: 64em) {
+  @media (max-width: 68em) {
     flex-direction: column;
     align-items: center;
   }
 `;
 
 const ImageBox = styled.div`
-  min-width: 952px;
   padding: 12px;
   height: calc(100vh - 220px);
   overflow-x: hidden;
   overflow-y: visible;
-  display: grid; 
+  display: grid;
   
-  grid-template-columns: 220px 220px 220px 220px;
-  grid-template-rows: 220px 220px 220px 220px;
   column-gap: 24px;
-  row-gap: 60px;
+  row-gap: 20px;
+  
+  grid-template-columns: repeat(5, 1fr);
+
   ::-webkit-scrollbar {display:none;}
   -ms-overflow-style: none; /* IE 11 */
   scrollbar-width: none; /* Firefox 64 */
+      
+  @media (max-width: 116em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @media (max-width: 100em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (max-width: 84em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 428px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-  @media (max-width: 80em) {
-    min-width: auto;
-    grid-template-columns: auto auto auto;
-    row-gap: 40px;
-
-  @media (max-width: 36em) {
-    min-width: auto;
-    grid-template-columns: auto auto;
-    row-gap: 5vw;
-
-  @media (max-width: 24em) {
-    min-width: auto;
-    grid-template-columns: auto;
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
+
+
+
 
 
 const Gallery = () => {

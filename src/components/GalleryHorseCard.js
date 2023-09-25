@@ -27,40 +27,24 @@ const ImgContainer = styled.div`
     height: 220px;
     max-height: 220px;
 
-    @media (max-width: 80em) {
-      width: 29vw;
-      max-width: 220px;
+    @media (max-width: 580px) {
+      width: 38vw;
       height: auto;
-  
-      @media (max-width: 36em) {
-        width: 38vw;
-        max-width: 220px;
-        height: auto;
 
-        @media (max-width: 24em) {
-          width: 80vw;
-          max-width: 220px;
-          height: auto;
-        }
+      @media (max-width: 400px) {
+        width: 220px;
+        height: 220px;
       }
     }
   }
-
-  @media (max-width: 80em) {
-    width: 29vw;
-    max-width: 220px;
+  
+  @media (max-width: 580px) {
+    width: 38vw;
     height: auto;
-
-    @media (max-width: 36em) {
-      width: 38vw;
-      max-width: 220px;
-      height: auto;
-
-      @media (max-width: 24em) {
-        width: 80vw;
-        max-width: 220px;
-        height: auto;
-      }
+   
+    @media (max-width: 400px) {
+      width: 220px;;
+      height: 220px;
     }
   }
 `;
@@ -70,7 +54,7 @@ const Img = styled.img`
 `;
 
 const Name = styled.text`
-  font-family: Amaranth;
+  font-family: Ubuntu;
   font-size: 16px;
   font-style: italic;
   font-weight: 400;
