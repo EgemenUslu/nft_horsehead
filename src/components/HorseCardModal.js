@@ -20,7 +20,7 @@ const ImgContainer = styled.div`
     max-height: 50vh;
 
     img {
-      width: 100%;
+      width: auto;
       height: 100%;
       max-height: 50vh;
     
