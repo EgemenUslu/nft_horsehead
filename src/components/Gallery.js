@@ -6,6 +6,7 @@ import GalleryFilter from './GalleryFilter';
 import GalleryHorseCard from './GalleryHorseCard';
 import MetadataLite from '../assets/metadata_lite.json';
 import LayersLite from '../assets/layers_lite.json';
+import HorseCardModal from './HorseCardModal';
 
 const Section = styled.section`
   position: relative;
@@ -67,6 +68,7 @@ const Gallery = () => {
   const [endDisplayIdx, setEndDisplayIdx] = useState(GalleryDisplayAmountInit)
   const [metadata, setMetadata] = useState([])
   const [data, setData] = useState([])
+  const [modalDisplayId, setModalDisplayId] = useState(0)
   const [layers, setLayers] = useState({})
   const listInnerRef = useRef();
    
@@ -152,6 +154,36 @@ const Gallery = () => {
       }
     }
   };
+
+  const updateModalDisplay = (how) => {
+    console.log(how, modalDisplayId);
+    switch (how) {
+        case 'close':
+            setModalDisplayId(0);
+            break;
+        
+        case 'up':
+            let nextId = modalDisplayId + 1;
+            if (nextId > 10000) {
+                nextId -= 10000;
+            }
+            setModalDisplayId(nextId);
+            break;
+        
+        case 'down':
+            let prevId = modalDisplayId - 1;
+            if (prevId < 1) {
+                prevId += 10000;
+            }
+            setModalDisplayId(prevId);
+            break;
+
+        default:
+            console.warn(`Unknown 'how' value received: ${how}`);
+            break;
+    }
+};
+
  
   return (
     <Section id="gallery">
@@ -180,9 +212,17 @@ const Gallery = () => {
                     key={item.edition}
                     data={item}
                     token_uri={SMALL_IMAGE_URL(item.edition)}
+                    updateModalDisplay={setModalDisplayId}
                   />
                 )})}
         </ImageBox>
+        {modalDisplayId > 0 &&
+          <HorseCardModal
+            data={data[modalDisplayId-1]}
+            token_uri={SMALL_IMAGE_URL(modalDisplayId)}
+            updateModalDisplay={updateModalDisplay}
+          />
+        }
     </Section>
   );
 };

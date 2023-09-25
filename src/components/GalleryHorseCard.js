@@ -90,29 +90,16 @@ const GalleryCardContainer = styled.div`
 
 
 const GalleryHorseCard = (props) => {
-  const [displayModal, setDisplayModal] = useState(false)
-  
-  const closeModal = () => {
-    setDisplayModal(false);
-  }
-
   console.log(props.data)
   return (
     <GalleryCardContainer>
       <ImgContainer 
-        onClick={() => setDisplayModal(true)} 
+        onClick={() => props.updateModalDisplay(props.data.edition)} 
         color={BackgroundColorMap[props.data.attributes['1. Backgrounds'][0]]}
       >
         <Img src={props.token_uri} alt=''/>
       </ImgContainer>
       <Name>META HORSE #{props.data.edition}</Name>
-      {displayModal &&
-        <HorseCardModal
-          data={props.data}
-          token_uri={props.token_uri}
-          closeModal={closeModal}
-        />
-      }
     </GalleryCardContainer>
   );
 };

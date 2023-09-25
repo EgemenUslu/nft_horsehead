@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { BackgroundColorMap, ModalTextColorMap } from '../config';
 import TraitCard from './TraitCard';
+import { useSwipeable } from 'react-swipeable';
 
 
 const ImgContainer = styled.div`
@@ -230,20 +231,33 @@ function useOutsideAlerter(ref, closeModal) {
 }
 
 const HorseCardModal = (props) => {
+  const closeModal = () => {
+    console.log('closeModal triggered in HorseCardModal')
+    props.updateModalDisplay('close')
+  };
+
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, props.closeModal);
+  useOutsideAlerter(wrapperRef, closeModal);
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => props.updateModalDisplay('up'),
+    onSwipedRight: () => props.updateModalDisplay('down'),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+    delta: 10 // This determines the minimum distance traveled to be considered a swipe
+  });
 
   console.log('horsecardmdal', props)
 
   return (
-    <ModalContainer id="ModalContainer">
+    <ModalContainer {...handlers} id="ModalContainer">
       <Modal 
         id="Modal"
         ref={wrapperRef} 
         color={BackgroundColorMap[props.data.attributes['1. Backgrounds'][0]]}
         textColor={ModalTextColorMap[props.data.attributes['1. Backgrounds'][0]]}
         >
-        <CloseButton onClick={props.closeModal}>X</CloseButton>
+        <CloseButton onClick={closeModal}>X</CloseButton>
         <ImgContainer>
         <img
             src={props.token_uri}
