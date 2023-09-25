@@ -176,7 +176,8 @@ const FooterText = styled.text`
   text-align: left;
 
   background: transparent;
-  margin-left: 80px;
+  right: 48px;
+  position: absolute;
 
   
   @media (max-width: 80em) {
