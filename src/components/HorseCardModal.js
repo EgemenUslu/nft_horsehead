@@ -130,7 +130,7 @@ const Modal = styled.div`
   color: ${props => props.textColor};
 
   
-  overflow-x: hidden;
+  overflow: hidden;
   ::-webkit-scrollbar {display:none;}
   -ms-overflow-style: none; /* IE 11 */
   scrollbar-width: none; /* Firefox 64 */
@@ -141,6 +141,7 @@ const Modal = styled.div`
     max-height: 96vh;
     flex-direction: column;
     padding-top: 200px;
+    overflow-x: hidden;
 
     
     @media (max-width: 48em) {
