@@ -39,12 +39,6 @@ const TraitCardsContainer = styled.div`
 
   @media (max-width: 80em) {
     width: 90vw;
-    height: calc(90vh - 90vw - 100px);
-    
-    overflow-x: hidden;
-    ::-webkit-scrollbar {display:none;}
-    -ms-overflow-style: none; /* IE 11 */
-    scrollbar-width: none; /* Firefox 64 */
   }
 `;
 
@@ -118,6 +112,7 @@ const ModalContainer = styled.div`
   top: 0;
   left: 0;
   background: rgba(0,0,0,0.6);
+  z-index: 2;
 `;
 
 const Modal = styled.div`
@@ -128,39 +123,52 @@ const Modal = styled.div`
   height: 600px;
   width: 1200px;
   border-radius: 48px;
-  overflow: hidden;
   position: absolute;
   background: ${props => props.color};
   z-index: 200;
 
   color: ${props => props.textColor};
 
+  
+  overflow-x: hidden;
+  ::-webkit-scrollbar {display:none;}
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+
   @media (max-width: 80em) {
     width: 90vw;
-    height: auto;
+    height: 50vh;
     max-height: 96vh;
     flex-direction: column;
+    padding-top: 200px;
+
+    
+    @media (max-width: 48em) {
+      height: 70vh;
+    }
   }
 `;
 
 const Footer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
   width: 600px;
   height: 112px;
+
   background: transparent;
 
   @media (max-width: 80em) {
     width: 90vw;
-    height: 24px;
+    height: 32px;
+    padding: 24px 0px 12px 0px;
   }
 `;
 
 const FooterText = styled.text`
-  font-family: Amaranth;
-  font-size: 16px;
+  font-family: Ubuntu;
+  font-size: 18px;
   font-style: italic;
   font-weight: 400;
   line-height: 19px;
@@ -170,14 +178,29 @@ const FooterText = styled.text`
   background: transparent;
   margin-left: 80px;
 
-  position: absolute;
-  bottom: 66px;
   
   @media (max-width: 80em) {
-    position: relative;
-    bottom: auto;
+    margin-left: 0px;
   }
 `;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 32px;   
+  right: 32px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: normal;
+  color: inherit; 
+  cursor: pointer;
+  font-family: Ubuntu;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 
 
 function useOutsideAlerter(ref, closeModal) {
@@ -203,12 +226,14 @@ const HorseCardModal = (props) => {
   console.log('horsecardmdal', props)
 
   return (
-    <ModalContainer>
+    <ModalContainer id="ModalContainer">
       <Modal 
+        id="Modal"
         ref={wrapperRef} 
         color={BackgroundColorMap[props.data.attributes['1. Backgrounds'][0]]}
         textColor={ModalTextColorMap[props.data.attributes['1. Backgrounds'][0]]}
         >
+        <CloseButton onClick={props.closeModal}>X</CloseButton>
         <ImgContainer>
         <img
             src={props.token_uri}
