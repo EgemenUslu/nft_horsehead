@@ -177,6 +177,7 @@ const FooterText = styled.text`
 
   background: transparent;
   right: 48px;
+  bottom: 48px;
   position: absolute;
 
   
