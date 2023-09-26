@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import Layer from './Layer';
 
@@ -36,6 +36,7 @@ const Filter = (props) => {
             layer_name = {layer[0]}
             layer_data= {layer[1]}
             updateLayers={props.updateLayers}
+            refreshFlag={props.refreshFlag}
           />
         ))
       }

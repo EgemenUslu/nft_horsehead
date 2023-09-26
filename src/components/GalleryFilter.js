@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import Filter from './filter/Filter';
 
@@ -61,6 +61,17 @@ const GalleryButton = styled.div`
 
 
 const GalleryFilter = (props) => {
+  const [refreshFlag, setRefreshFlag] = useState(false);  
+
+  const handleCleanAllFilters = () => {
+    setRefreshFlag(prev => !prev);  // Toggle the flag
+    props.cleanAllFilters();
+  };
+
+  const handleRandomizeDisplayData = () => {
+    setRefreshFlag(prev => !prev);  // Toggle the flag
+    props.randomizeDisplayData();
+  };
 
   return (
     <GalleryFilterBox id="GalleryFilter">      
@@ -68,11 +79,12 @@ const GalleryFilter = (props) => {
       <Filter
         layers={props.layers}
         updateLayers={props.updateLayers}
+        refreshFlag={refreshFlag}
       />
-      <GalleryButton onClick={props.cleanAllFilters} >
+      <GalleryButton onClick={handleCleanAllFilters}>
         CLEAR FILTERS
       </GalleryButton>      
-      <GalleryButton onClick={props.randomizeDisplayData}>
+      <GalleryButton onClick={handleRandomizeDisplayData}>
         RANDOMIZE
       </GalleryButton>
     </GalleryFilterBox>

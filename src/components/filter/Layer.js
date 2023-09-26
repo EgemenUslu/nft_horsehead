@@ -59,6 +59,12 @@ const Layer = (props) => {
     const [displayOptions, setDisplayOptions] = useState(false)
     console.log('Layer: ', props);
 
+    useEffect(() => {
+      setDisplayOptions(false);
+  
+      console.log("Refresh triggered in Filter component!");
+    }, [props.refreshFlag]);
+
     return (
         <LayerBox id="layer">       
             <LayerTitleBox
