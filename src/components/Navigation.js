@@ -75,7 +75,7 @@ const MenuItem = styled.li`
   padding: 4px 8px;
   border-radius: 10px;
   cursor: pointer;
-  font-family: Cambria;
+  font-family: Ubuntu;
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
