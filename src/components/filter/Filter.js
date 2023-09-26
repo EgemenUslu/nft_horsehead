@@ -9,9 +9,16 @@ const FilterContainer = styled.div`
   overflow-x: hidden;
   overflow-y: visible;
   ::-webkit-scrollbar {display:none;}
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
 
   display: flex;
   flex-direction: column;
+
+  
+  @media (max-width: 68em) {
+    max-height: calc(100vh - 360px);
+  }
 
   }
 `;
