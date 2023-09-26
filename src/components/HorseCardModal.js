@@ -206,6 +206,7 @@ const CloseButton = styled.button`
   color: inherit; 
   cursor: pointer;
   font-family: Ubuntu;
+  z-index: 3;
 
   &:focus {
     outline: none;
@@ -324,10 +325,13 @@ const HorseCardModal = (props) => {
           </TitleContainer>
           <TraitCardsContainer>
             <TraitCardsGrid>
-              {Object.keys(props.data.attributes).map((trait_name) =>(
+              {Object.keys(props.data.attributes).map((layer_name) =>(
                   <TraitCard
-                    name={trait_name}
-                    data={props.data.attributes[`${trait_name}`]}
+                    name={layer_name}
+                    mhsId={props.data.edition}
+                    data={props.data.attributes[`${layer_name}`]}
+                    updateLayers={props.updateLayers}
+                    layers={props.layers}
                   />
               ))}                 
             </TraitCardsGrid>

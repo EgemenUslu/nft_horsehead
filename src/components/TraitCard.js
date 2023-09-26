@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { LayerNameMap } from '../config';
 
@@ -13,7 +13,7 @@ const TraitBox = styled.div`
 
   min-height: 64px;
   width: 192px;
-  background: rgba(0, 0, 0, 0.1);
+  background: ${props => props.background};
   border-radius: 10px;  
   
   @media (max-width: 80em) {
@@ -46,12 +46,31 @@ const Value = styled.text`
 
 `;
 
-const TraitCard = ({name, data}) => {
-  console.log(name,data)
+const TraitCard = (props) => {
+  console.log('TraitCard L1', props);
+  const [isClicked, setIsClicked] = useState(props.layers[props.name][props.data[0]].clicked)
+  
+  useEffect(() => {
+    setIsClicked(props.layers[props.name][props.data[0]].clicked)
+  }, [props])
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+    props.updateLayers(
+        {'layer_name':props.name,
+        'trait_name':props.data[0],
+        'clicked':!props.layers[props.name][props.data[0]].clicked,
+        'clicked_from_mhs_id': props.mhsId
+      })
+  };
+
   return(
-    <TraitBox>
-      <Title>{LayerNameMap[name]}:</Title>
-      <Value>{data[0].toUpperCase()}</Value>
+    <TraitBox
+      onClick={handleClick}
+      background={isClicked ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)'}
+    >
+      <Title>{LayerNameMap[props.name]}:</Title>
+      <Value>{props.data[0].toUpperCase()}</Value>
     </TraitBox>
   )
 }

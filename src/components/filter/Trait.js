@@ -63,7 +63,9 @@ const Trait = (props) => {
     props.updateLayers(
         {'layer_name':props.layer_name,
         'trait_name':props.trait_name,
-        'clicked':!props.layers[props.layer_name][props.trait_name].clicked})
+        'clicked':!props.layers[props.layer_name][props.trait_name].clicked,
+        'clicked_from_mhs_id': null
+      })
   };
 
   return (

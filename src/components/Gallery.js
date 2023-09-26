@@ -115,8 +115,8 @@ const Gallery = () => {
     setData(randomData);
   };
 
-  const updateLayers = ({layer_name, trait_name, clicked}) => {
-    console.log('update_layers f: ', layer_name, trait_name, clicked)
+  const updateLayers = ({layer_name, trait_name, clicked, clicked_from_mhs_id}) => {
+    console.log('update_layers f: ', layer_name, trait_name, clicked, clicked_from_mhs_id)
     let current_layers_data = layers;
     current_layers_data[layer_name][trait_name]['clicked'] = clicked
     setLayers(current_layers_data)
@@ -144,10 +144,27 @@ const Gallery = () => {
         applyFilter(item.attributes, filter_data)
       ))
       console.log('filtered', filtered)
+      setData(filtered)    
 
-      setData(filtered)      
+      if(clicked_from_mhs_id !== null) {
+        let new_modal_display_id = 0;
+
+        while (filtered[new_modal_display_id].edition != clicked_from_mhs_id){
+          new_modal_display_id += 1
+        }
+        setModalDisplayId(new_modal_display_id)
+      };
+  
     } else {
-      setData(metadata)
+      setData(metadata)      
+      if(clicked_from_mhs_id !== null) {
+        let new_modal_display_id = 0;
+
+        while (metadata[new_modal_display_id].edition != clicked_from_mhs_id){
+          new_modal_display_id += 1
+        }
+        setModalDisplayId(new_modal_display_id)
+      };
     }
   }
 
@@ -238,6 +255,8 @@ const Gallery = () => {
             data={data[modalDisplayId]}
             token_uri={SMALL_IMAGE_URL(data[modalDisplayId].edition)}
             updateModalDisplay={updateModalDisplay}
+            updateLayers={updateLayers}
+            layers={layers}
           />
         }
     </Section>
