@@ -14,11 +14,13 @@ const TraitBox = styled.div`
   min-height: 64px;
   width: 192px;
   background: ${props => props.background};
-  border-radius: 10px;  
+  border-radius: 10px; 
+  cursor: pointer;
   
   @media (max-width: 80em) {
     width: calc(90vw - 48px - 32px);
   }
+
 `;
 
 const Title = styled.text`

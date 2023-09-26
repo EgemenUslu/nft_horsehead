@@ -71,10 +71,17 @@ const Gallery = () => {
   const [modalDisplayId, setModalDisplayId] = useState(-1)
   const [layers, setLayers] = useState({})
   const listInnerRef = useRef();
+  const dataRef = useRef();
+
    
   useEffect(() => {
     fetchCollection()
   }, [])
+
+  useEffect(() => {
+      dataRef.current = data;
+  }, [data]);
+
 
   const fetchCollection = async() => {
     setLoading(true)
@@ -184,35 +191,50 @@ const Gallery = () => {
   };
 
   const updateModalDisplay = (how) => {
-    console.log(how, modalDisplayId);
-    switch (how) {
-        case 'close':
-            setModalDisplayId(-1);
-            break;
-        
-        case 'up':
-            let nextId = modalDisplayId + 1;
-            if (nextId >= data.length) {
-                nextId -= data.length;
-            }
-            setModalDisplayId(nextId);
-            break;
-        
-        case 'down':
-            let prevId = modalDisplayId - 1;
-            if (prevId < 0) {
-                prevId += data.length;
-            }
-            setModalDisplayId(prevId);
-            break;
+    const currentData = dataRef.current;
 
-        default:
-            console.warn(`Unknown 'how' value received: ${how}`);
-            break;
-    }
+    setModalDisplayId(prevModalDisplayId => {
+        // Now use currentData instead of data
+        
+        switch (how) {
+            case 'close':
+                return -1;
+            
+            case 'up':
+                if (currentData.length > 1){
+                    let nextId = prevModalDisplayId + 1;
+                    if (nextId >= currentData.length) {
+                        nextId -= currentData.length;
+                    }
+                    return nextId;
+                }
+                else {
+                    console.warn(`You cannot go ${how} when there is only 1 nft on display!`);
+                    return prevModalDisplayId;  // return previous state
+                }
+            
+            case 'down':
+                if (currentData.length > 1){
+                    let prevId = prevModalDisplayId - 1;
+                    if (prevId < 0) {
+                        prevId += currentData.length;
+                    }
+                    return prevId;
+                }
+                else {
+                    console.warn(`You cannot go ${how} when there is only 1 nft on display!`);
+                    return prevModalDisplayId;  // return previous state
+                }
+
+            default:
+                console.warn(`Unknown 'how' value received: ${how}`);
+                return prevModalDisplayId;  // return previous state
+        }
+    });
 };
 
- 
+
+  console.log('Gallery', modalDisplayId, data)
   return (
     <Section id="gallery">
         {loading !== true ?

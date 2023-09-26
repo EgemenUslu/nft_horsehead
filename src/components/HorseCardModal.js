@@ -181,6 +181,7 @@ const FooterText = styled.text`
   line-height: 19px;
   letter-spacing: 0em;
   text-align: left;
+  cursor: pointer;
 
   background: transparent;
   bottom: 48px;
