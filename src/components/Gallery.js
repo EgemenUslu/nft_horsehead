@@ -229,7 +229,7 @@ const Gallery = () => {
                   />
                 )})}
         </ImageBox>
-        {modalDisplayId > 0 &&
+        {modalDisplayId !== -1 &&
           <HorseCardModal
             id={`HorseCardModal ${data[modalDisplayId].edition}`}
             key={data[modalDisplayId].edition}
