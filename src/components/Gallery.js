@@ -7,6 +7,7 @@ import GalleryHorseCard from './GalleryHorseCard';
 import MetadataLite from '../assets/metadata_lite.json';
 import LayersLite from '../assets/layers_lite.json';
 import HorseCardModal from './HorseCardModal';
+import HorseShoe from '../assets/horseShoePNG.GIF';
 
 const Section = styled.section`
   position: relative;
@@ -226,6 +227,7 @@ const Gallery = () => {
                     token_uri={SMALL_IMAGE_URL(item.edition)}
                     dataIdx={idx}
                     updateModalDisplay={setModalDisplayId}
+                    horseShoe={HorseShoe}
                   />
                 )})}
         </ImageBox>

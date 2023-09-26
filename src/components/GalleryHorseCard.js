@@ -1,7 +1,6 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import styled from 'styled-components';
 import { BackgroundColorMap } from '../config';
-import HorseCardModal from './HorseCardModal';
 
 
 const ImgContainer = styled.div`
@@ -91,18 +90,21 @@ const GalleryCardContainer = styled.div`
 
 
 const GalleryHorseCard = (props) => {
-  console.log(props.data)
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <GalleryCardContainer>
       <ImgContainer 
         onClick={() => props.updateModalDisplay(props.dataIdx)} 
         color={BackgroundColorMap[props.data.attributes['1. Backgrounds'][0]]}
       >
-        <Img src={props.token_uri} alt=''/>
+        {!imageLoaded && <img src={props.horseShoe} alt="Loading..." />}
+        <Img src={props.token_uri} alt='' onLoad={() => setImageLoaded(true)} />
       </ImgContainer>
       <Name>META HORSE #{props.data.edition}</Name>
     </GalleryCardContainer>
   );
 };
+
 
 export default GalleryHorseCard;
