@@ -41,6 +41,7 @@ const ImgContainer = styled.div`
   @media (max-width: 580px) {
     width: 38vw;
     height: auto;
+    min-height: 38vw;
    
     @media (max-width: 400px) {
       width: 220px;;
@@ -94,7 +95,7 @@ const GalleryHorseCard = (props) => {
   return (
     <GalleryCardContainer>
       <ImgContainer 
-        onClick={() => props.updateModalDisplay(props.data.edition)} 
+        onClick={() => props.updateModalDisplay(props.dataIdx)} 
         color={BackgroundColorMap[props.data.attributes['1. Backgrounds'][0]]}
       >
         <Img src={props.token_uri} alt=''/>

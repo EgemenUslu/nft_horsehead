@@ -69,10 +69,10 @@ const GalleryFilter = (props) => {
         layers={props.layers}
         updateLayers={props.updateLayers}
       />
-      <GalleryButton onClick={()=>props.cleanAllFilters()} >
+      <GalleryButton onClick={props.cleanAllFilters} >
         CLEAR FILTERS
       </GalleryButton>      
-      <GalleryButton >
+      <GalleryButton onClick={props.randomizeDisplayData}>
         RANDOMIZE
       </GalleryButton>
     </GalleryFilterBox>

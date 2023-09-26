@@ -143,7 +143,7 @@ const Modal = styled.div`
     height: 50vh;
     max-height: 96vh;
     flex-direction: column;
-    padding-top: 200px;
+    padding-top: 194px;
     overflow: unset;
     overflow-x: hidden;
     align-items: start;
@@ -231,6 +231,19 @@ function useOutsideAlerter(ref, closeModal) {
 }
 
 const HorseCardModal = (props) => {
+  useEffect(() => {
+    // Disable scrolling when modal is open
+    document.getElementById('mainContainer').style.overflow = 'hidden';
+    document.getElementById('mainContainer').style.height = '100vh';
+
+    // Re-enable scrolling when the modal is closed/unmounted
+    return () => {
+      document.getElementById('mainContainer').style.overflow = 'auto';
+      document.getElementById('mainContainer').style.height = 'unset';
+    };
+  }, []); // Empty dependency array means this effect runs once when the component mounts and once when it unmounts
+
+
   const closeModal = () => {
     console.log('closeModal triggered in HorseCardModal')
     props.updateModalDisplay('close')

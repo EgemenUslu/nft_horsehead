@@ -27,7 +27,9 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <MainContainer>
+      <MainContainer
+        id="mainContainer"
+      >
         <ThemeProvider theme={dark} id={location}>
           <Navigation update_location={update_location} location={location}/>
           {

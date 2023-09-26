@@ -26,7 +26,6 @@ const ImageBox = styled.div`
   padding: 12px;
   height: calc(100vh - 220px);
   overflow-x: hidden;
-  overflow-y: visible;
   display: grid;
   
   column-gap: 24px;
@@ -68,7 +67,7 @@ const Gallery = () => {
   const [endDisplayIdx, setEndDisplayIdx] = useState(GalleryDisplayAmountInit)
   const [metadata, setMetadata] = useState([])
   const [data, setData] = useState([])
-  const [modalDisplayId, setModalDisplayId] = useState(0)
+  const [modalDisplayId, setModalDisplayId] = useState(-1)
   const [layers, setLayers] = useState({})
   const listInnerRef = useRef();
    
@@ -79,7 +78,6 @@ const Gallery = () => {
   const fetchCollection = async() => {
     setLoading(true)
     setEndDisplayIdx(GalleryDisplayAmountInit);
-
 
     let layers_data = JSON.parse(JSON.stringify(LayersLite));
     setLayers(layers_data)
@@ -102,6 +100,18 @@ const Gallery = () => {
     }
 
     return true;
+  };
+
+  const randomizeDisplayData = () => {
+    cleanAllFilters();
+  
+    // Shuffle metadata array
+    const shuffledMetadata = [...metadata].sort(() => Math.random() - 0.5);
+  
+    // Take the first 100 items
+    const randomData = shuffledMetadata.slice(0, 100);
+    
+    setData(randomData);
   };
 
   const updateLayers = ({layer_name, trait_name, clicked}) => {
@@ -159,21 +169,21 @@ const Gallery = () => {
     console.log(how, modalDisplayId);
     switch (how) {
         case 'close':
-            setModalDisplayId(0);
+            setModalDisplayId(-1);
             break;
         
         case 'up':
             let nextId = modalDisplayId + 1;
-            if (nextId > 10000) {
-                nextId -= 10000;
+            if (nextId >= data.length) {
+                nextId -= data.length;
             }
             setModalDisplayId(nextId);
             break;
         
         case 'down':
             let prevId = modalDisplayId - 1;
-            if (prevId < 1) {
-                prevId += 10000;
+            if (prevId < 0) {
+                prevId += data.length;
             }
             setModalDisplayId(prevId);
             break;
@@ -193,6 +203,7 @@ const Gallery = () => {
             layers={layers}
             updateLayers={updateLayers}
             cleanAllFilters={cleanAllFilters}
+            randomizeDisplayData={randomizeDisplayData}
           />
           :
           <GalleryFilter
@@ -200,26 +211,30 @@ const Gallery = () => {
             layers={LayersLite}
             updateLayers={updateLayers}
             cleanAllFilters={cleanAllFilters}
+            randomizeDisplayData={randomizeDisplayData}
           />
           }
         <ImageBox 
           onScroll={onScroll}
           ref={listInnerRef}
         >
-          {data.slice(0,endDisplayIdx).map((item) => {
+          {data.slice(0,endDisplayIdx).map((item, idx) => {
                 return (
                   <GalleryHorseCard 
                     key={item.edition}
                     data={item}
                     token_uri={SMALL_IMAGE_URL(item.edition)}
+                    dataIdx={idx}
                     updateModalDisplay={setModalDisplayId}
                   />
                 )})}
         </ImageBox>
         {modalDisplayId > 0 &&
           <HorseCardModal
-            data={data[modalDisplayId-1]}
-            token_uri={SMALL_IMAGE_URL(modalDisplayId)}
+            id={`HorseCardModal ${data[modalDisplayId].edition}`}
+            key={data[modalDisplayId].edition}
+            data={data[modalDisplayId]}
+            token_uri={SMALL_IMAGE_URL(data[modalDisplayId].edition)}
             updateModalDisplay={updateModalDisplay}
           />
         }
