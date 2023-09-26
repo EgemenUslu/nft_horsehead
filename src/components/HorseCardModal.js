@@ -212,6 +212,28 @@ const CloseButton = styled.button`
   }
 `;
 
+const Loader = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  animation: pulse 1s infinite alternate;
+
+  @keyframes pulse {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+`;
 
 
 function useOutsideAlerter(ref, closeModal) {
@@ -231,6 +253,8 @@ function useOutsideAlerter(ref, closeModal) {
 }
 
 const HorseCardModal = (props) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const closeModal = () => {
     console.log('closeModal triggered in HorseCardModal')
     props.updateModalDisplay('close')
@@ -284,10 +308,13 @@ const HorseCardModal = (props) => {
         textColor={ModalTextColorMap[props.data.attributes['1. Backgrounds'][0]]}
         >
         <CloseButton onClick={closeModal}>X</CloseButton>
-        <ImgContainer>
-        <img
-            src={props.token_uri}
-            alt=""
+        <ImgContainer>    
+          {!imageLoaded && <Loader />}
+          <img
+              src={props.token_uri}
+              alt=""
+              onLoad={() => setImageLoaded(true)}
+              style={{ filter: imageLoaded ? 'none' : 'blur(10px)' }} // Apply a blur filter if the image hasn't loaded
           />
         </ImgContainer>
         <TraitsContainer>
