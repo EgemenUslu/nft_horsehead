@@ -88,6 +88,17 @@ const Gallery = () => {
       dataRef.current = data;
   }, [data]);
 
+  useEffect(() => {
+      // Check if it's a mobile device based on viewport width (less than 768px as an example)
+      if (window.innerWidth <= 768) {
+          const galleryElement = document.getElementById('GalleryFilter');
+          if (galleryElement) {
+              // Scroll to the element's top offset
+              window.scrollTo(0, galleryElement.offsetTop);
+          }
+      }
+  }, []);
+
 
   const fetchCollection = async() => {
     setLoading(true)
@@ -242,7 +253,7 @@ const Gallery = () => {
 
   console.log('Gallery', modalDisplayId, data)
   return (
-    <Section id="gallery">
+    <Section id="GallerySection">
         {loading !== true ?
           <GalleryFilter
             key='gallery'

@@ -63,7 +63,7 @@ const GalleryButton = styled.div`
 const GalleryFilter = (props) => {
 
   return (
-    <GalleryFilterBox id="gallery_filter">      
+    <GalleryFilterBox id="GalleryFilter">      
       <HeaderBox>GALLERY</HeaderBox>
       <Filter
         layers={props.layers}
