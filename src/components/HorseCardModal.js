@@ -231,19 +231,6 @@ function useOutsideAlerter(ref, closeModal) {
 }
 
 const HorseCardModal = (props) => {
-  useEffect(() => {
-    // Disable scrolling when modal is open
-    document.getElementById('mainContainer').style.overflow = 'hidden';
-    document.getElementById('mainContainer').style.height = '100vh';
-
-    // Re-enable scrolling when the modal is closed/unmounted
-    return () => {
-      document.getElementById('mainContainer').style.overflow = 'auto';
-      document.getElementById('mainContainer').style.height = 'unset';
-    };
-  }, []); // Empty dependency array means this effect runs once when the component mounts and once when it unmounts
-
-
   const closeModal = () => {
     console.log('closeModal triggered in HorseCardModal')
     props.updateModalDisplay('close')
@@ -259,6 +246,32 @@ const HorseCardModal = (props) => {
     trackMouse: true,
     delta: 10 // This determines the minimum distance traveled to be considered a swipe
   });
+
+  const handleKeyDown = (event) => {
+    switch (event.keyCode) {
+      case 37: // left arrow
+      case 40: // down arrow
+        props.updateModalDisplay('down');
+        break;
+      case 38: // up arrow
+      case 39: // right arrow
+        props.updateModalDisplay('up');
+        break;    
+      case 27: // esc key
+        props.updateModalDisplay('close');
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Clean-up function
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   console.log('horsecardmdal', props)
 
