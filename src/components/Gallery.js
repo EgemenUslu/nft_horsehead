@@ -23,10 +23,20 @@ const Section = styled.section`
   }
 `;
 
+const GridContainer = styled.div`
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+
+  ::-webkit-scrollbar {display:none;}
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+`;
+
 const ImageBox = styled.div`
   padding: 12px;
   height: calc(100vh - 220px);
-  overflow-x: hidden;
   display: grid;
   
   column-gap: 24px;
@@ -47,10 +57,6 @@ const ImageBox = styled.div`
   }
   
   @media (max-width: 84em) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media (max-width: 428px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -254,22 +260,28 @@ const Gallery = () => {
             randomizeDisplayData={randomizeDisplayData}
           />
           }
-        <ImageBox 
+        <GridContainer
+          id="GalleryNFTGrid"
           onScroll={onScroll}
           ref={listInnerRef}
         >
-          {data.slice(0,endDisplayIdx).map((item, idx) => {
-                return (
-                  <GalleryHorseCard 
-                    key={item.edition}
-                    data={item}
-                    token_uri={SMALL_IMAGE_URL(item.edition)}
-                    dataIdx={idx}
-                    updateModalDisplay={setModalDisplayId}
-                    horseShoe={HorseShoe}
-                  />
-                )})}
-        </ImageBox>
+          <ImageBox 
+            id="GalleryNFTGrid"
+          >
+            {data.slice(0,endDisplayIdx).map((item, idx) => {
+                  return (
+                    <GalleryHorseCard 
+                      key={item.edition}
+                      data={item}
+                      token_uri={SMALL_IMAGE_URL(item.edition)}
+                      dataIdx={idx}
+                      updateModalDisplay={setModalDisplayId}
+                      horseShoe={HorseShoe}
+                    />
+                  )})}
+          </ImageBox>
+        </GridContainer>
+        
         {modalDisplayId !== -1 &&
           <HorseCardModal
             id={`HorseCardModal ${data[modalDisplayId].edition}`}
