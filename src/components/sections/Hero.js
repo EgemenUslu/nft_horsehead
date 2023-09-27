@@ -24,6 +24,10 @@ const Container = styled.section`
   background: inherit;
   color:inherit;
 
+  &:last-child {
+    align-items: start;
+  }
+
   @media (max-width: 660px) {
     width: 100%;
     flex-direction: column;
