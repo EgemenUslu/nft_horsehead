@@ -11,6 +11,8 @@ const Paragraph = styled.text`
   font-weight: 400;
   line-height: normal;
   margin-bottom: 8px;
+
+  width: 100%;
 `;
 
 const PrivacyPolicy = ({ update_location, location }) => {

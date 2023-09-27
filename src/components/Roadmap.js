@@ -13,6 +13,7 @@ const Paragraph = styled.text`
   line-height: normal;
 
   margin-bottom: 8px;
+  width: 100%;
 `;
 
 
