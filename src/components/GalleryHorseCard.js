@@ -8,7 +8,7 @@ const ImgContainer = styled.div`
   height: 220px;
 
   transition: all 0.2s ease;
-  background: ${props => props.color};
+  background: ${props => props.imgLoaded ? props.color : 'transparent'};
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;   
@@ -97,6 +97,7 @@ const GalleryHorseCard = (props) => {
       <ImgContainer 
         onClick={() => props.updateModalDisplay(props.dataIdx)} 
         color={BackgroundColorMap[props.data.attributes['1. Backgrounds'][0]]}
+        imgLoaded={imageLoaded}
       >
         {!imageLoaded && <img src={props.horseShoe} alt="Loading..." />}
         <Img src={props.token_uri} alt='' onLoad={() => setImageLoaded(true)} />
