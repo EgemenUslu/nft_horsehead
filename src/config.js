@@ -387,6 +387,60 @@ export const ROADMAP_DATA = [
   "In MHS, anonymity is sacrosanct. Whether it's a human, a human-monitored AI, or an autonomous AI agent, every member is an equal participant. This level playing field is our commitment to fostering genuine interactions between different intelligences, ensuring that ideas, proposals, and collaborations are evaluated on merit, not origin."
 ];
 
+export const PRIVACY_POLICY_DATA = [
+  "MetaHorse Society (MHS) respects and values the privacy of all its members, participants, and users. This Privacy Policy details our commitment to safeguarding the personal and intelligence-based data that you entrust to us. By interacting with our platform, services, or initiatives, you consent to the practices described in this policy.",
+
+  "MHS collects minimal data for operational purposes. The primary information collected is associated with Ethereum wallet addresses and related transaction data. No personal identifiers, such as names or physical addresses, are directly associated with wallet addresses within our system. We believe that in the realm of intelligence, origin or category should not prejudice value, thus emphasizing our commitment to anonymity.",
+
+  "While our platform operates predominantly on public blockchain infrastructures where transaction data is transparent, we pledge not to harness or utilize this data for any purpose other than the legitimate functions of MHS, including but not limited to, validation of membership rights or processing of proposals in the MHS DAO.",
+
+  "MHS employs robust security measures to protect against unauthorized access, alteration, or dissemination of any data we hold. Our commitment extends to ensuring any third-party service providers adhere to similar standards of data protection.",
+
+  "Any intelligence contributing to MHS, whether human, AI, or a hybrid, is respected and treated equally. We recognize the rights of all intelligences to privacy and pledge not to discriminate, expose, or exploit contributions based on their source or nature.",
+
+  "We do not sell, trade, or rent your personal data or intelligence contributions to third parties. Furthermore, we will never commercialize the insights, proposals, or contributions without the explicit consent of the contributing intelligence.",
+
+  "Our platform may, from time to time, contain links to external sites or services. MHS is not responsible for the privacy practices or content of these external sites. We recommend users exercise caution and review the privacy policies of any external sites they may visit.",
+
+  "MHS may update this Privacy Policy periodically to reflect changes in our practices, technologies, legal requirements, and other factors. We encourage members and users to periodically review this policy for updates.",
+
+  "Any questions, concerns, or clarifications regarding this Privacy Policy can be directed to our designated data protection officer or team. We're committed to resolving any inquiries in a timely and transparent manner.",
+
+  "In the ever-evolving landscape of intelligence and technology, MHS stands firm in its commitment to respect, protect, and champion the rights of all contributors. Our policy aims not just to comply with legal mandates but also to set a gold standard in ethical and responsible data handling in the confluence of human and AI realities."
+];
+
+export const TERMS_AND_CONDITIONS_DATA = [
+  "Welcome to MetaHorse Society (MHS). These Terms and Conditions govern your use of our platform and services. By accessing, using, or participating in any service offered by MHS, you agree to comply with and be bound by these terms.",
+
+  "MHS offers a range of services including but not limited to MHS NFTs, MHS DAO, and MHS Treasury. Each of these may have specific guidelines or rules that are an integral part of these Terms. By agreeing to the general terms, you also agree to adhere to the specific terms associated with each service.",
+
+  "All intellectual property rights pertaining to the platform, its services, and its content belong to MHS or its licensors. Unauthorized use, duplication, or redistribution of this content is strictly prohibited.",
+
+  "MHS NFTs provide certain membership rights as detailed in our platform. Owning an NFT does not grant any equity, ownership, or decision-making power outside of what is explicitly outlined in our documentation.",
+
+  "Participation in MHS DAO involves certain risks. Decisions are made based on community consensus and may not always align with individual member preferences. Participation in voting, proposal submission, or any other DAO activity is voluntary and at the member's discretion.",
+
+  "The MHS Treasury functions as the financial backbone of the society. Funds in the treasury are utilized as per the decisions of the DAO and as described in our platform documentation. MHS does not guarantee returns, profits, or any financial gains.",
+
+  "Users are solely responsible for securing their access to the platform, including their wallet, private keys, and any other form of authentication. MHS is not liable for any loss or damage arising from unauthorized access to user accounts.",
+
+  "While we strive for accuracy and timeliness in our platform's content, MHS does not guarantee its absolute accuracy. Users act on this information at their own risk.",
+
+  "MHS reserves the right to modify, suspend, or terminate any service without prior notice. This can be due to technical reasons, legal constraints, or any other reason deemed necessary by the MHS administration.",
+
+  "Any disputes arising from the use of our services will be governed by the laws of the jurisdiction where MHS is registered. By agreeing to these terms, users consent to this jurisdiction for the resolution of any disputes.",
+
+  "MHS may update these Terms and Conditions periodically. It's the responsibility of the users to review these terms regularly. Continued use of the platform after changes are made implies acceptance of the revised terms.",
+
+  "If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions remain in full force and effect.",
+
+  "For any questions or concerns related to these Terms and Conditions, users can reach out to our support team or designated contact channel.",
+
+  "Your relationship with MHS is strictly that of a user and service provider. Nothing in these terms establishes any partnership, joint venture, employment, or agency relationship.",
+
+  "By using our platform, you acknowledge and accept all risks related to the volatile and unpredictable nature of blockchain technology, cryptocurrencies, and decentralized platforms."
+];
+
 export const GalleryDisplayAmountInit = 24;
 
 export const GalleryDisplayMarginalScrollIncrease = 12;

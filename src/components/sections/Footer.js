@@ -48,7 +48,7 @@ const Text = styled.text`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  
+
   @media (max-width: 360px) {
     font-size: 14px;
   }
@@ -79,10 +79,10 @@ const Footer = ({update_location, overwrite=''}) => {
             <Link
               onClick={() => update_location('privacy_policy')}
             >Privacy Policy</Link>
-            <Text>and</Text>
+            <Text>and MHS</Text>
             <Link
               onClick={() => update_location('terms_and_conditions')}
-            >MHS Terms & Conditions</Link>
+            >Terms & Conditions</Link>
           </FooterLineItemContainer>
         </FooterColumnItemContainer>
     </FooterContainer>

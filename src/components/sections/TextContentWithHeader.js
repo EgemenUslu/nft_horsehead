@@ -22,7 +22,7 @@ display:flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding-top: 180px;
+margin-top: 180px;
 
 min-width: 1024px;
 width: 62vw;
@@ -49,7 +49,7 @@ const Header = styled.div`
 
 const TextContentWithHeader = ({update_location, location, header, content}) => {
   return (
-    <Section id={`TextContentWithHeader - ${location}`}>      
+    <Section id={location}>      
       <DisplayContainer>
         <Header>{header}</Header>
         {content}
