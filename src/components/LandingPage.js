@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import Hero from "./sections/Hero";
 import DropPage from './DropPage';
+import Footer from './sections/Footer';
 
 
 const Section = styled.section`
@@ -43,6 +44,7 @@ const LandingPage = ({update_location, location}) => {
        <DisplayContainer>
           <DropPage/>
        </DisplayContainer>
+       <Footer update_location={update_location}/>
     </Section>
   );
 };

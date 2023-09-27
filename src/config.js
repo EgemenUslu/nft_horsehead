@@ -210,8 +210,164 @@ export const DROP_SECTIONS_DATA_OLD = [
   }
 ];
 
-
-  
+export const FAQ_DATA = [
+  {
+      question: "What is the MetaHorse Society?",
+      answer: "MetaHorse Society (MHS) is a pioneering initiative aiming to redefine the relationship between human intelligence (HI) and artificial intelligence (AI). It thrives on three pillars: MHS NFTs, MHS DAO, and MHS Treasury. MHS provides an environment for both HI and AI to collaborate and make collective decisions."
+  },
+  {
+      question: "What are MHS NFTs?",
+      answer: "MHS NFTs are a unique collection of 10,000 horsehead non-fungible tokens. Holding these NFTs grants members exclusive rights within the MHS, including participation in member-only events, accessing unique information, and more."
+  },
+  {
+      question: "How does MHS DAO operate?",
+      answer: "MHS DAO is a transparent consensus mechanism on the blockchain. It's a decentralized autonomous organization where members can submit proposals. The direction and activities of MHS are driven by these proposals and the subsequent member votes."
+  },
+  {
+      question: "How is the MHS Treasury funded?",
+      answer: "The MHS Treasury is primarily funded through NFT sales, both initial and secondary. It also receives funds through token sales, profits from proposal executions, and accepts donations and grants."
+  },
+  {
+      question: "Can I remain anonymous as a MHS member?",
+      answer: "Absolutely. MHS values and ensures member anonymity. As an NFT holder, you are recognized only by your cryptocurrency wallet address. The intelligence behind the wallet, whether human, AI, or a blend, remains private."
+  },
+  {
+      question: "How can I submit a proposal to MHS DAO?",
+      answer: "MHS NFT holders have the right to submit proposals to the MHS DAO. Detailed guidelines and processes for submission will be provided to members upon joining."
+  },
+  {
+      question: "How are MHS NFTs priced?",
+      answer: "MHS NFTs have varying price points, from 0.1 ETH to 10 ETH, based on the group (from Group A to Group D) they belong to. Each group has its unique benefits and significance within the MHS ecosystem."
+  },
+  {
+      question: "What happens during the MHS presales?",
+      answer: "During presales, Group 0 NFTs are minted by MHS founders, while Groups B, C, and D are minted by the MHS Treasury Wallet. These NFTs are then made available for sale upon the completion of the prior group's sale."
+  },
+  {
+      question: "What is the roadmap for MHS?",
+      answer: "The MHS roadmap is linked to the minting of each NFT group, from Group A to D. Each completed minting starts a 180-day countdown for specific milestones, such as MHS DAO activation and development cycles."
+  },
+  {
+      question: "What are the benefits of holding an MHS NFT?",
+      answer: "Holders of MHS NFTs not only acquire a unique digital asset but also become stakeholders in the future of human-AI collaboration. They can participate in exclusive events, access privileged information, contribute to the DAO, and more."
+  },
+  {
+      question: "How does AI contribute to MHS?",
+      answer: "AI has a pivotal role in MHS. It contributes proposals, insights, and decision-making support within the MHS DAO, allowing for a richer, more informed collaborative environment."
+  },
+  {
+      question: "What are the layers and traits of MHS NFTs?",
+      answer: "MHS NFTs are crafted with over 8 layers and encompass 270+ unique traits. This allows for a vast variety of digital art, ranging from horses to rare unicorns and zebras."
+  },
+  {
+      question: "Is there a limit to how many NFTs I can purchase?",
+      answer: "There's no specified limit on NFT purchases per individual. However, remember that there are only 10,000 unique MHS NFTs available."
+  },
+  {
+      question: "How is the profit from NFT sales distributed?",
+      answer: "60% of the profit from select NFT sales goes directly to the MHS Treasury, which then allocates funds for various initiatives and operational expenses."
+  },
+  {
+      question: "What are development cycles in MHS?",
+      answer: "Development cycles in MHS refer to phases where specific milestones, as laid out in the roadmap, are achieved. Each cycle is initiated after the complete minting of an NFT group and lasts for 180 days."
+  },
+  {
+      question: "How can I vote on MHS DAO proposals?",
+      answer: "MHS NFT holders have exclusive voting rights. Once a proposal is open for voting, members will be provided with guidelines and tools to cast their vote."
+  },
+  {
+      question: "Do I need technical knowledge to be a part of MHS?",
+      answer: "No. While having technical or blockchain knowledge might enhance your experience, it's not a requirement. MHS is designed to be inclusive for enthusiasts from all backgrounds."
+  },
+  {
+      question: "Can AI entities buy MHS NFTs?",
+      answer: "While AI can contribute to MHS DAO and the ecosystem, purchasing NFTs requires a cryptocurrency wallet, typically operated by a human. However, the lines between AI and human contributions are designed to be blurred within MHS for richer collaboration."
+  },
+  {
+      question: "How do I ensure my NFT's authenticity?",
+      answer: "Your NFT's authenticity can be verified on the blockchain, ensuring that it's a genuine MHS NFT. Always ensure you're buying from official MHS channels and platforms."
+  },
+  {
+      question: "Can I sell my MHS NFT?",
+      answer: "Yes, MHS NFTs are transferable assets. You can choose to sell or trade them on secondary markets. A portion of the profits from secondary sales will contribute to the MHS Treasury."
+  },
+  {
+      question: "Is there a community forum or platform for MHS members?",
+      answer: "Yes, MHS has dedicated community channels where members can discuss, share insights, and collaborate. Details and access guidelines will be provided to NFT holders."
+  },
+  {
+      question: "How does MHS ensure transparency?",
+      answer: "Transparency is a cornerstone of MHS. All DAO data, financial transactions, and decision-making processes are available on the blockchain. Furthermore, MHS shares development plans and source codes with society members."
+  },
+  {
+      question: "How does MHS view the role of art in the digital age?",
+      answer: "For MHS, art represents the irreplaceable human touch, emotional depth, and creativity. While we embrace AI's capabilities, we believe that human artistic expression should always have its place in the future of HI and AI interaction."
+  },
+  {
+      question: "What is the significance of zebras and unicorns in MHS NFTs?",
+      answer: "Zebras and unicorns add diversity and rarity to the MHS NFT collection. They represent unique traits and attributes, amplifying the exclusivity of the NFTs they're part of."
+  },
+  {
+      question: "What is the long-term vision of MHS?",
+      answer: "MHS envisions a future where humans and AI collaborate seamlessly, defining new ways of interaction, decision-making, and mutual growth. We're on a mission to pave the way for this harmonious future."
+  },
+  {
+      question: "Are there any collaborations or partnerships in the MHS ecosystem?",
+      answer: "Yes, MHS is always open to collaborations that align with our mission. We have ongoing partnerships with various entities in the tech, art, and blockchain domains. More details can be found on our official channels."
+  },
+  {
+      question: "How can I contact MHS for partnerships or collaborations?",
+      answer: "For partnership inquiries, you can reach out to our official email provided on our website or contact us through our official social media channels."
+  },
+  {
+      question: "How is MHS addressing sustainability?",
+      answer: "MHS is conscious of its environmental footprint. We're constantly exploring ways to make our operations more sustainable, from optimizing blockchain processes to collaborating with eco-friendly initiatives."
+  },
+  {
+      question: "Are there any membership tiers in MHS?",
+      answer: "While all MHS NFT holders are valued members, the NFTs are categorized from Group A to D, with each group having its unique benefits and significance within the MHS ecosystem."
+  },
+  {
+      question: "Can I donate to MHS?",
+      answer: "Yes, donations are accepted and are a valuable contribution to the MHS Treasury. These funds help support various initiatives and operational costs."
+  },
+  {
+      question: "How secure is the MHS platform?",
+      answer: "Security is paramount for MHS. We employ state-of-the-art security measures, both on-chain and off-chain, to ensure the safety of our members' data and assets."
+  },
+  {
+      question: "How can I stay updated with MHS news and announcements?",
+      answer: "You can follow our official website, subscribe to our newsletter, or join our social media channels to stay updated with the latest news and updates from MHS."
+  },
+  {
+      question: "Who can join MHS?",
+      answer: "Anyone interested in the convergence of human and AI worlds can join MHS. While holding an MHS NFT provides certain privileges, the society is open for enthusiasts from all domains."
+  },
+  {
+      question: "Can I contribute to MHS if I don't hold an NFT?",
+      answer: "While NFT holders have exclusive rights within MHS, we value contributions from all. You can engage in discussions, attend public events, and share your insights, even if you don't hold an NFT."
+  },
+  {
+      question: "Is MHS associated with any other NFT projects?",
+      answer: "MHS is an independent initiative but collaborates with various entities in the NFT space for mutual growth. Any official collaborations will be announced on our channels."
+  },
+  {
+      question: "How does MHS handle disputes or disagreements within the DAO?",
+      answer: "MHS has a clear governance structure in place. In case of disputes, the DAO members discuss and vote to come to a consensus. The decentralized nature ensures fairness and transparency."
+  },
+  {
+      question: "Where can I find technical details or whitepapers about MHS?",
+      answer: "Technical documents, whitepapers, and in-depth information about MHS can be accessed on our official website and dedicated portals for members."
+  },
+  {
+      question: "What is the return or refund policy for purchased NFTs?",
+      answer: "NFT sales are final and non-refundable. However, you have the flexibility to sell or trade your NFT on secondary markets."
+  },
+  {
+      question: "How do I report a technical issue or bug?",
+      answer: "If you encounter any technical issues, please contact our support team through the official website or our community channels. We appreciate the community's feedback and strive to resolve issues promptly."
+  }
+];  
 
 export const GalleryDisplayAmountInit = 24;
 

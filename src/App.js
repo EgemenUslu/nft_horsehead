@@ -8,6 +8,8 @@ import { useMediaQuery } from 'react-responsive';
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import Gallery from "./components/Gallery";
+import FAQ from "./components/FAQ";
+import Roadmap from "./components/Roadmap";
 
 
 function App() {
@@ -37,9 +39,15 @@ function App() {
               <LandingPage update_location={update_location} location={location}/>
               :
             location === 'gallery'?
-              <Gallery />
+              <Gallery update_location={update_location} location={location} />
               :
-              <></>
+            location === 'faq'?
+              <FAQ update_location={update_location} location={location} />
+              :
+            location === 'roadmap'?
+              <Roadmap update_location={update_location} location={location} />
+              :
+            <></>
           }
         </ThemeProvider>
       </MainContainer>

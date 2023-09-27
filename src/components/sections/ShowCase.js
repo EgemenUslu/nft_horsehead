@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import VerticalSeperator from './VerticalSeperator';
-import { BackgroundColorMap } from '../../config';
+import { BackgroundColorMap, DROP_SECTIONS_DATA } from '../../config';
 import GenerationFinal from '../../assets/generationFinal.png';
 
 const Section = styled.section`
@@ -118,16 +118,24 @@ const ShowCase = ({no, header, body, visual}) => {
           />
       </Container>
       <VerticalSeperator
-        overwrite={header === "MHS Art" ? 
-        `
-        margin: 0px 0px 99px -10vw;
-        height: 100px;
-        background: black;
-        border-bottom: 1px solid #705D71;
-        `
-        : 
-        ''
-      }
+        overwrite={
+          header === "MHS Art" ? 
+          `
+          margin: 0px 0px 99px -10vw;
+          height: 100px;
+          background: black;
+          border-bottom: 1px solid #705D71;
+          `
+          : 
+          header === DROP_SECTIONS_DATA[DROP_SECTIONS_DATA.length-1].header ?
+          `
+          margin: 100px 0px 0px -10vw;
+          height: 0px;
+          border-bottom: 1px solid #705D71;
+          `
+          :
+          ''
+        }
       />
     </Section>
   );

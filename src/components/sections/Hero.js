@@ -20,17 +20,20 @@ const Container = styled.section`
 
   display: flex;
   justify-content: center;
+  align-items: end;
   background: inherit;
   color:inherit;
 
-  @media (max-width: 84em) {
+  @media (max-width: 660px) {
     width: 100%;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     margin-top: 144px;
+    }
   }
 `;
+
 const Header = styled.div`
   font-family: Ubuntu;
   font-size: 40px;
@@ -42,8 +45,12 @@ const Header = styled.div`
 
   @media (max-width: 84em) {
     font-size: 32px;
-    color: white;
-    width: 90vw;
+
+    @media (max-width: 660px) {
+      font-size: 28px;
+      width: 90vw;
+      color: white;
+    }
   }
 `;
 
@@ -54,7 +61,7 @@ const Text = styled.text`
   background: inherit;
   color:inherit;
 
-  @media (max-width: 84em) {
+  @media (max-width: 660px) {
     color: white;
   }
 `;
@@ -79,12 +86,20 @@ const TextBox = styled.div`
   text-align: left;
 
   @media (max-width: 84em) {
-    max-width: 90vw;
-    width: 90vw;
-    margin-left: 0;
-    margin-top: 0;
     padding: 0vh 5vw 10vh 5vw;
-    background: black;
+    font-size: 24px;
+    margin-top: 180px;
+
+    
+    @media (max-width: 660px) {
+      max-width: 90vw;
+      width: 90vw;
+      margin-left: 0;
+      margin-top: 0;
+      padding: 0vh 5vw 10vh 5vw;
+      background: black;
+      font-size: 22px;
+    }
   }
 `;
 
@@ -97,9 +112,14 @@ const ImageBox = styled.img`
   margin-left: -10vw;
 
   @media (max-width: 84em) {
-    width: 90vw;
-    height: auto;
-    margin-left: 10vw;
+    width: 40vw;
+    height: 40vw;
+    
+    @media (max-width: 660px) {
+      width: 90vw;
+      height: auto;
+      margin-left: 10vw;
+    }
   }
 `;
 
@@ -185,7 +205,12 @@ const CountdownContainer = styled.div`
   @media (max-width: 84em) {
     width: 90vw;
     max-width: 600px;
-    justify-content: space-between;
+
+    @media (max-width: 660px) {
+      width: 90vw;
+      max-width: 600px;
+      justify-content: space-between;
+    }
   }
 `;
 
@@ -198,7 +223,15 @@ const CountdownSegment = styled.div`
   background: none;
 
   @media (max-width: 84em) {
-    margin: auto;
+    margin-right: 32px;  
+    
+    @media (max-width: 1024px) {
+      margin-right: 24px;
+
+      @media (max-width: 660px) {
+        margin: auto;
+      }
+    }
   }
 `;
 
@@ -219,10 +252,20 @@ const CountdownValue = styled.div`
   line-height: normal;
 
   @media (max-width: 84em) {
-    background: rgba(255, 255, 255, 0.3);
     width: 80px;
     height: 80px;
-    font-size: 48px;
+    font-size: 48px;    
+    
+    @media (max-width: 1024px) {
+      width: 72px;
+      height: 72px;
+      font-size: 42px;
+    
+      @media (max-width: 660px) {
+        background: rgba(255, 255, 255, 0.3);
+        font-size: 42px;
+      }
+    }
   }
 `;
 
@@ -237,6 +280,14 @@ const CountdownLabel = styled.div`
   
   @media (max-width: 84em) {
     font-size: 24px;
+  
+    @media (max-width: 1024px) {
+      font-size: 20px;   
+
+      @media (max-width: 660px) {
+        font-size: 20px;
+      }
+    }
   }
 `;
 
@@ -299,11 +350,11 @@ const calculateTimeLeft = () => {
 const Hero = ({update_location, location}) => {
   const [current, setCurrent] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 64 * 16);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < window.innerHeight);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 84 * 16);
+    setIsMobile(window.innerWidth < window.innerHeight);
   };
 
   useEffect(() => {

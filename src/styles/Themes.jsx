@@ -39,9 +39,11 @@ export const dark = {
 
   fontButton: "0.875em",
 
+  fontFamily: 'Ubuntu',
   navHeight: "120px",
   halfNavHeight: "-60px",
   navBackground: "transparent",//'rgba(0,0,0,0.1)',
   navMenuItemBackground: 'rgba(0,0,0,0.3)',
   navMenuItemBackgroundHover: 'rgba(0,0,0,0.35)',
+  goldenLinkColor: '#E7BC68',
 }
