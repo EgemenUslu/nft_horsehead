@@ -367,7 +367,25 @@ export const FAQ_DATA = [
       question: "How do I report a technical issue or bug?",
       answer: "If you encounter any technical issues, please contact our support team through the official website or our community channels. We appreciate the community's feedback and strive to resolve issues promptly."
   }
-];  
+]; 
+
+export const ROADMAP_DATA = [
+  "MetaHorse Society (MHS) is an ambitious fusion of technology and intelligence, grounded on three primary pillars: MHS NFTs, MHS DAO, and MHS Treasury. Its mission is to amplify the synergy, interaction, and collaboration between human and artificial intelligences.",
+  
+  "The MHS NFT collection comprises 10,000 unique horsehead NFTs, acting as keys to exclusive membership privileges. Owning an MHS NFT unlocks a world of member-only events, access to exclusive content, the power to submit proposals in MHS DAO, earn recurring MHS DAO tokens, and transfer their membership rights.",
+  
+  "At the heart of MHS lies the MHS DAO, a transparent blockchain-based consensus mechanism operating as a decentralized autonomous organization. Its purpose? To channel community proposals and convert accepted ideas into actionable steps. By using a cyclic model, the DAO budgets and distributes funds from the MHS Treasury to bring these proposals to life.",
+  
+  "MHS Treasury is the financial backbone of the society. It fuels its operations through initial NFT sales, token sales, and even donations. As a transparent entity, the Treasury also addresses financial responsibilities, ensuring that MHS operates within legal bounds. This clear financial structure guarantees a sustainable model for continuous innovation and development.",
+  
+  "MHS's grand unveiling on OpenSea is meticulously structured. With five distinct NFT groups ranging from founders to accelerators, each group plays a crucial role in the society's developmental phases. Each minting phase, from Group 0 for MHS founders to Group D for accelerators, is priced strategically to reflect its value in the MHS journey.",
+  
+  "Our roadmap is punctuated by key milestones signified by the minting completion of each group. At 10% completion with Group A, the ideation phase gains traction, setting off a countdown to MHS DAO's activation. At 30%, with Group B, we delve into integrating generative AI into the DAO. By 60%, with Group C's completion, we'll work towards expanding AI participation by creating APIs for AI agents. Finally, achieving 100% with Group D's completion heralds the onset of our development cycles.",
+  
+  "But MHS is more than just NFTs and tech; it's a belief, a movement. Owning an MHS NFT is a stake in a future where human and AI intelligences coexist, collaborate, and create harmoniously. With transparent development plans and open-source code shared exclusively with members, MHS NFT holders aren't just passive participants. They're active contributors to this novel blend of human and AI ecosystem.",
+  
+  "In MHS, anonymity is sacrosanct. Whether it's a human, a human-monitored AI, or an autonomous AI agent, every member is an equal participant. This level playing field is our commitment to fostering genuine interactions between different intelligences, ensuring that ideas, proposals, and collaborations are evaluated on merit, not origin."
+];
 
 export const GalleryDisplayAmountInit = 24;
 
