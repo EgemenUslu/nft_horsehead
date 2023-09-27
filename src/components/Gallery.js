@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { GalleryDisplayAmountInit, GalleryDisplayMarginalScrollIncrease, SMALL_IMAGE_BASE_URL, SMALL_IMAGE_URL } from '../config';
-import { Api } from '../helpers/api';
+import { GalleryDisplayAmountInit, GalleryDisplayMarginalScrollIncrease, SMALL_IMAGE_URL } from '../config';
 import GalleryFilter from './GalleryFilter';
 import GalleryHorseCard from './GalleryHorseCard';
 import MetadataLite from '../assets/metadata_lite.json';
@@ -173,7 +172,7 @@ const Gallery = () => {
       if(clicked_from_mhs_id !== null) {
         let new_modal_display_id = 0;
 
-        while (filtered[new_modal_display_id].edition != clicked_from_mhs_id){
+        while (filtered[new_modal_display_id].edition !== clicked_from_mhs_id){
           new_modal_display_id += 1
         }
         setModalDisplayId(new_modal_display_id)
@@ -184,7 +183,7 @@ const Gallery = () => {
       if(clicked_from_mhs_id !== null) {
         let new_modal_display_id = 0;
 
-        while (metadata[new_modal_display_id].edition != clicked_from_mhs_id){
+        while (metadata[new_modal_display_id].edition !== clicked_from_mhs_id){
           new_modal_display_id += 1
         }
         setModalDisplayId(new_modal_display_id)

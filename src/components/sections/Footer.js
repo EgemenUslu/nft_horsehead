@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import Shoe from '../../assets/shoe.PNG';
-import Signature from '../../assets/signature.PNG';
 
 
 const FooterContainer = styled.div`
