@@ -1,5 +1,5 @@
 
-import Metadata from './assets/metadata_lite.json';
+import Metadata from './assets/metadataLiteMinified.json';
 import HiAiBrain from './assets/brain.PNG';
 import Dao from './assets/dao.PNG';
 import Treasure from './assets/treasure.PNG';

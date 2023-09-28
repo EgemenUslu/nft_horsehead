@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { GalleryDisplayAmountInit, GalleryDisplayMarginalScrollIncrease, SMALL_IMAGE_URL } from '../config';
 import GalleryFilter from './GalleryFilter';
 import GalleryHorseCard from './GalleryHorseCard';
-import MetadataLite from '../assets/metadata_lite.json';
+import MetadataLite from '../assets/metadataLiteMinified.json';
 import LayersLite from '../assets/layers_lite.json';
 import HorseCardModal from './HorseCardModal';
 import HorseShoe from '../assets/horseShoePNG.GIF';
