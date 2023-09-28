@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { GalleryDisplayAmountInit, GalleryDisplayMarginalScrollIncrease, SMALL_IMAGE_URL } from '../config';
 import GalleryFilter from './GalleryFilter';
@@ -77,6 +77,7 @@ const Gallery = () => {
   const [layers, setLayers] = useState({})
   const listInnerRef = useRef();
   const dataRef = useRef();
+  const [triggerScroll, setTriggerScroll] = useState(false);
 
    
   useEffect(() => {
@@ -98,6 +99,12 @@ const Gallery = () => {
       }
   }, []);
 
+  useLayoutEffect(() => {
+    if (triggerScroll) {
+      scrollToGridStart();
+      setTriggerScroll(false);  // Reset the trigger
+    }
+  }, [triggerScroll]);
 
   const fetchCollection = async() => {
     setLoading(true)
@@ -126,6 +133,14 @@ const Gallery = () => {
     return true;
   };
 
+  const scrollToGridStart = () => {
+    const GalleryNFTGridStart = document.getElementById("GalleryNFTGrid");
+    if (GalleryNFTGridStart) {
+      GalleryNFTGridStart.scrollIntoView({ behavior: "smooth" });
+    }
+    console.log('update layers end grid start:', GalleryNFTGridStart);
+  }
+
   const randomizeDisplayData = () => {
     cleanAllFilters();
   
@@ -136,6 +151,7 @@ const Gallery = () => {
     const randomData = shuffledMetadata.slice(0, 100);
     
     setData(randomData);
+    setTriggerScroll(true); 
   };
 
   const updateLayers = ({layer_name, trait_name, clicked, clicked_from_mhs_id}) => {
@@ -189,11 +205,13 @@ const Gallery = () => {
         setModalDisplayId(new_modal_display_id)
       };
     }
+    setTriggerScroll(true); 
   }
 
   const cleanAllFilters = async() => {
     console.log('cleanAllFilters')
-    fetchCollection()
+    fetchCollection();
+    setTriggerScroll(true); 
   }
 
   const onScroll = () => {
@@ -271,7 +289,7 @@ const Gallery = () => {
           />
           }
         <GridContainer
-          id="GalleryNFTGrid"
+          id="GalleryNFTGridContainer"
           onScroll={onScroll}
           ref={listInnerRef}
         >

@@ -441,9 +441,9 @@ export const TERMS_AND_CONDITIONS_DATA = [
   "By using our platform, you acknowledge and accept all risks related to the volatile and unpredictable nature of blockchain technology, cryptocurrencies, and decentralized platforms."
 ];
 
-export const GalleryDisplayAmountInit = 24;
+export const GalleryDisplayAmountInit = 30;
 
-export const GalleryDisplayMarginalScrollIncrease = 12;
+export const GalleryDisplayMarginalScrollIncrease = 15;
 
 export const SMALL_IMAGE_BASE_URL = 'QmVkkNVhWjsF9urhFykcHwWVKudfVGh7JujUxVjbtcaStc';
 

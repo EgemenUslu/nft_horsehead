@@ -93,7 +93,9 @@ const GalleryHorseCard = (props) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <GalleryCardContainer>
+    <GalleryCardContainer
+      id={`HorseCard#${props.dataIdx}`}
+    >
       <ImgContainer 
         onClick={() => props.updateModalDisplay(props.dataIdx)} 
         color={BackgroundColorMap[props.data.attributes['1. Backgrounds'][0]]}
