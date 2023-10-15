@@ -116,6 +116,11 @@ const ModalContainer = styled.div`
   left: 0;
   background: rgba(0,0,0,0.6);
   z-index: 2;
+
+  @media (max-width: 48em) {
+    height: ${props => props.mobileModalHeight}px;
+    align-items: center;
+  }
 `;
 
 const Modal = styled.div`
@@ -150,7 +155,7 @@ const Modal = styled.div`
 
     
     @media (max-width: 48em) {
-      height: 70vh;
+      height: calc(100% - 244px);
       align-items: center;
     }
   }
@@ -256,6 +261,17 @@ function useOutsideAlerter(ref, closeModal) {
 
 const HorseCardModal = (props) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [mobileModalHeight, setMobileModalHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      setMobileModalHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', updateHeight);
+
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
 
   const closeModal = () => {
     console.log('closeModal triggered in HorseCardModal')
@@ -302,7 +318,10 @@ const HorseCardModal = (props) => {
   console.log('horsecardmdal', props)
 
   return (
-    <ModalContainer {...handlers} id="ModalContainer">
+    <ModalContainer 
+      {...handlers} 
+      id="ModalContainer" 
+      mobileModalHeight={mobileModalHeight}>
       <Modal 
         id="Modal"
         ref={wrapperRef} 
